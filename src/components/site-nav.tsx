@@ -1,10 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { HichLogo } from "./hich-logo";
+import { CartDrawer } from "./cart-drawer";
 
 const links = [
   { to: "/", label: "Index" },
   { to: "/exhibitions", label: "Exhibitions" },
   { to: "/artists", label: "Artists" },
+  { to: "/shop", label: "Shop" },
   { to: "/about", label: "About & Visit" },
 ] as const;
 
@@ -28,8 +30,11 @@ export function SiteNav() {
             </Link>
           ))}
         </nav>
-        <div className="hidden text-eyebrow text-muted-foreground md:block">
-          MMXXVI
+        <div className="flex items-center gap-4">
+          <span className="hidden text-eyebrow text-muted-foreground md:block">
+            MMXXVI
+          </span>
+          <CartDrawer />
         </div>
       </div>
     </header>

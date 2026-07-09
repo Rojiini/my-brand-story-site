@@ -61,14 +61,12 @@ export function SiteFooter() {
             Wed – Sun · 11:00 – 19:00
           </p>
         </div>
-        <div className="space-y-4">
-          <div className="text-eyebrow text-accent">Correspond</div>
-          <p className="text-sm leading-relaxed text-ivory/80">
-            hello@hich.gallery
-            <br />
-            +33 1 42 00 00 00
-          </p>
-        </div>
+          <div className="space-y-4">
+            <div className="text-eyebrow text-accent">Correspond</div>
+            <p className="text-sm leading-relaxed text-ivory/80">
+              info@hichgallery.com
+            </p>
+          </div>
       </div>
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 text-eyebrow text-ivory/50 md:px-12">

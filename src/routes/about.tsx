@@ -94,9 +94,7 @@ function AboutPage() {
           <div>
             <span className="text-eyebrow text-accent">Correspond</span>
             <p className="mt-6 font-display text-2xl leading-relaxed text-foreground">
-              hello@hich.gallery
-              <br />
-              +33 1 42 00 00 00
+              info@hichgallery.com
             </p>
             <p className="mt-4 text-eyebrow text-muted-foreground">
               For press, sales & studio visits.

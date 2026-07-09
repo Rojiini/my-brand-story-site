@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteNav, SiteFooter } from "../components/site-nav";
 
 function NotFoundComponent() {
   return (
@@ -77,14 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "HICH Gallery — Where nothing becomes everything" },
+      {
+        name: "description",
+        content:
+          "HICH Gallery is a contemporary art space in Paris presenting exhibitions, artists, and the space between silence and form.",
+      },
+      { property: "og:title", content: "HICH Gallery" },
+      {
+        property: "og:description",
+        content: "A contemporary gallery. Where nothing becomes everything.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "HICH Gallery" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -119,8 +126,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SiteNav />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <SiteFooter />
     </QueryClientProvider>
   );
 }

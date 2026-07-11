@@ -52,13 +52,13 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="space-y-4">
-          <div className="text-eyebrow text-accent">Visit</div>
+          <div className="text-eyebrow text-accent">Mailbox</div>
           <p className="text-sm leading-relaxed text-ivory/80">
-            14 Rue de la Lune
+            7367 N Ashland Blvd
             <br />
-            75002 Paris, France
+            Chicago, IL 60626
             <br />
-            Wed – Sun · 11:00 – 19:00
+            United States
           </p>
         </div>
           <div className="space-y-4">

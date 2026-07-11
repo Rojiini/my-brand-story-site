@@ -63,16 +63,16 @@ function AboutPage() {
       <section className="border-y border-border bg-card">
         <div className="mx-auto grid max-w-[1400px] gap-16 px-6 py-24 md:grid-cols-3 md:px-12">
           <div>
-            <span className="text-eyebrow text-accent">Address</span>
+            <span className="text-eyebrow text-accent">Mailbox</span>
             <p className="mt-6 font-display text-2xl leading-relaxed text-foreground">
-              14 Rue de la Lune
+              7367 N Ashland Blvd
               <br />
-              75002 Paris
+              Chicago, IL 60626
               <br />
-              France
+              United States
             </p>
             <p className="mt-4 text-eyebrow text-muted-foreground">
-              Métro Bonne-Nouvelle · Sentier
+              By appointment only
             </p>
           </div>
           <div>

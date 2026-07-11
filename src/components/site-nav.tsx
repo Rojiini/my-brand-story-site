@@ -52,13 +52,13 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="space-y-4">
-          <div className="text-eyebrow text-accent">Visit</div>
+          <div className="text-eyebrow text-accent">Mailbox</div>
           <p className="text-sm leading-relaxed text-ivory/80">
-            14 Rue de la Lune
+            7367 N Ashland Blvd
             <br />
-            75002 Paris, France
+            Chicago, IL 60626
             <br />
-            Wed – Sun · 11:00 – 19:00
+            United States
           </p>
         </div>
           <div className="space-y-4">
@@ -71,7 +71,7 @@ export function SiteFooter() {
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 text-eyebrow text-ivory/50 md:px-12">
           <span>© HICH Gallery · MMXXVI</span>
-          <span>Paris</span>
+          <span>Chicago</span>
         </div>
       </div>
     </footer>

@@ -71,7 +71,7 @@ export function SiteFooter() {
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 text-eyebrow text-ivory/50 md:px-12">
           <span>© HICH Gallery · MMXXVI</span>
-          <span>Paris</span>
+          <span>Chicago</span>
         </div>
       </div>
     </footer>

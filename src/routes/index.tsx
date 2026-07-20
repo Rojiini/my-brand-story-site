@@ -1,11 +1,49 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
+import { Suspense } from "react";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import heroGallery from "@/assets/hero-gallery.jpg";
 import exhibition1 from "@/assets/exhibition-1.jpg";
 import exhibition2 from "@/assets/exhibition-2.jpg";
 import exhibition3 from "@/assets/exhibition-3.jpg";
 import { HichLogo } from "@/components/hich-logo";
+import {
+  type ShopifyProduct,
+  PRODUCTS_QUERY,
+  storefrontApiRequest,
+} from "@/lib/shopify";
+import { useCartStore } from "@/stores/cart-store";
+
+const productsQueryOptions = queryOptions({
+  queryKey: ["shopify", "home-products"],
+  queryFn: async () => {
+    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 6 });
+    const edges: ShopifyProduct[] = data?.data?.products?.edges ?? [];
+    return edges;
+  },
+});
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "HICH Gallery — Contemporary Art" },
+      {
+        name: "description",
+        content:
+          "HICH Gallery is a contemporary art space where nothing becomes everything. Discover exhibitions, artists, and available works.",
+      },
+      { property: "og:title", content: "HICH Gallery — Contemporary Art" },
+      {
+        property: "og:description",
+        content:
+          "Discover exhibitions, artists, and available works at HICH Gallery.",
+      },
+    ],
+  }),
+  loader: ({ context }) =>
+    context.queryClient.ensureQueryData(productsQueryOptions),
   component: Index,
 });
 
@@ -68,7 +106,7 @@ function Index() {
 
       {/* Statement */}
       <section className="mx-auto max-w-4xl px-6 py-32 text-center md:px-12">
-        <span className="text-eyebrow text-accent">A Gallery in Paris</span>
+        <span className="text-eyebrow text-accent">A Gallery in Chicago</span>
         <h2 className="mt-8 font-display text-4xl leading-[1.15] text-foreground md:text-6xl">
           HICH — the Persian word for <em className="text-primary">nothing</em>
           &nbsp;— is where our questions begin.
@@ -80,8 +118,39 @@ function Index() {
         </p>
       </section>
 
+      {/* Shop section */}
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-12">
+          <div className="mb-16 flex items-end justify-between">
+            <div>
+              <span className="text-eyebrow text-accent">Available Works</span>
+              <h3 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
+                From the shop
+              </h3>
+            </div>
+            <Link
+              to="/shop"
+              className="hidden text-eyebrow text-muted-foreground hover:text-accent md:inline"
+            >
+              All works →
+            </Link>
+          </div>
+          <Suspense fallback={<ProductsSkeleton />}>
+            <ShopProducts />
+          </Suspense>
+          <div className="mt-16 text-center md:hidden">
+            <Link
+              to="/shop"
+              className="text-eyebrow text-muted-foreground hover:text-accent"
+            >
+              All works →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Featured exhibition */}
-      <section className="mx-auto grid max-w-[1400px] gap-16 px-6 pb-32 md:grid-cols-12 md:px-12">
+      <section className="mx-auto grid max-w-[1400px] gap-16 px-6 py-32 md:grid-cols-12 md:px-12">
         <div className="md:col-span-7">
           <img
             src={exhibition1}
@@ -162,5 +231,111 @@ function Index() {
         <p className="mt-8 text-eyebrow text-muted-foreground">— from the founding note</p>
       </section>
     </main>
+  );
+}
+
+function ProductsSkeleton() {
+  return (
+    <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div key={i} className="animate-pulse space-y-3">
+          <div className="aspect-[3/4] w-full bg-secondary/40" />
+          <div className="h-4 w-2/3 bg-secondary/40" />
+          <div className="h-3 w-1/3 bg-secondary/40" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ShopProducts() {
+  const { data: products } = useSuspenseQuery(productsQueryOptions);
+  const addItem = useCartStore((s) => s.addItem);
+  const isLoading = useCartStore((s) => s.isLoading);
+
+  if (products.length === 0) {
+    return (
+      <div className="border border-dashed border-border/60 py-20 text-center">
+        <p className="font-display text-2xl">No works available</p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Visit the shop to browse the full collection.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      {products.map((p) => {
+        const img = p.node.images.edges[0]?.node;
+        const price = p.node.priceRange.minVariantPrice;
+        const variant = p.node.variants.edges[0]?.node;
+
+        const handleAdd = async (e: React.MouseEvent) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!variant) return;
+          await addItem({
+            product: p,
+            variantId: variant.id,
+            variantTitle: variant.title,
+            price: variant.price,
+            quantity: 1,
+            selectedOptions: variant.selectedOptions ?? [],
+          });
+          toast.success("Added to your selection", {
+            position: "top-center",
+          });
+        };
+
+        return (
+          <article key={p.node.id} className="group">
+            <Link
+              to="/product/$handle"
+              params={{ handle: p.node.handle }}
+              className="block"
+            >
+              <div className="aspect-[3/4] w-full overflow-hidden bg-secondary/30">
+                {img ? (
+                  <img
+                    src={img.url}
+                    alt={img.altText ?? p.node.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                ) : null}
+              </div>
+            </Link>
+            <div className="mt-4 flex items-baseline justify-between gap-4">
+              <Link
+                to="/product/$handle"
+                params={{ handle: p.node.handle }}
+                className="block"
+              >
+                <h4 className="font-display text-xl group-hover:text-accent">
+                  {p.node.title}
+                </h4>
+              </Link>
+              <span className="text-sm text-muted-foreground">
+                {price.currencyCode} {parseFloat(price.amount).toFixed(2)}
+              </span>
+            </div>
+            <Button
+              onClick={handleAdd}
+              disabled={isLoading || !variant || !variant.availableForSale}
+              variant="outline"
+              className="mt-4 w-full"
+            >
+              {isLoading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : variant?.availableForSale ? (
+                "Add to Cart"
+              ) : (
+                "Sold Out"
+              )}
+            </Button>
+          </article>
+        );
+      })}
+    </div>
   );
 }

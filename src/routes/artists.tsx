@@ -123,7 +123,7 @@ function ArtistsPage() {
               <div>
                 <span className="text-eyebrow text-accent">Education</span>
                 <p className="mt-3 font-display text-xl text-foreground">
-                  Bachelor of Laws (LL.B.) — Iran
+                  Bachelor of Laws — Iran
                 </p>
               </div>
               <div>

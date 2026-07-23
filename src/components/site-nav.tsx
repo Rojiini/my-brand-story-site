@@ -4,7 +4,7 @@ import { CartDrawer } from "./cart-drawer";
 
 const links = [
   { to: "/", label: "Index" },
-  { to: "/exhibitions", label: "Exhibitions" },
+  { to: "/exhibitions", label: "Exhibitions and Events" },
   { to: "/artists", label: "Artists" },
   { to: "/shop", label: "Shop" },
   { to: "/about", label: "About & Visit" },

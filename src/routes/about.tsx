@@ -9,12 +9,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "About HICH Gallery, founded by Betsabeh Hasanpour in Chicago. Discover our story, our founder, and how to visit us.",
+          "About HICH Gallery, a family-owned Persian art and design brand founded in Chicago by Bety Shahlaei, Fozhan Bozorgi, and Rojin Bozorgi.",
       },
       { property: "og:title", content: "About & Visit — HICH Gallery" },
       {
         property: "og:description",
-        content: "About HICH Gallery, founded by Betsabeh Hasanpour in Chicago.",
+        content: "About HICH Gallery, a family-owned Persian art and design brand founded in Chicago.",
       },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -47,7 +47,7 @@ function AboutPage() {
         <div className="md:col-span-5">
           <img
             src={heroGallery}
-            alt="Interior of HICH Gallery"
+            alt="HICH Gallery artwork"
             width={1600}
             height={1100}
             loading="lazy"
@@ -55,95 +55,140 @@ function AboutPage() {
           />
         </div>
         <div className="space-y-6 md:col-span-7">
+          <span className="text-eyebrow text-accent">Our Story</span>
           <p className="font-display text-3xl italic leading-[1.35] text-foreground md:text-4xl">
-            HICH — the Persian word for <em className="text-primary">nothing</em> — is a
-            contemporary art space founded by Betsabeh Hasanpour in Chicago, Illinois.
+            HICH Gallery began with a word — <em className="text-primary">هیچ</em>, hich — which
+            means "nothing" in Farsi. But in Persian and Sufi thought, nothing is never empty.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            Through HICH Gallery, Betsabeh is dedicated to building a platform where art,
-            culture, and creativity converge — presenting the richness of Persian art to an
-            international audience while fostering meaningful artistic dialogue and connection.
+            It is the space before creation, the silence before a poem, the blank wall before a
+            story is told. From that idea came our name, and our belief: where nothing becomes
+            everything.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            We believe that the work of a gallery is not to fill a room, but to help a room hold
-            what is placed inside it. We keep our programme small on purpose. We keep our hours
-            long on purpose. Entry is free, always.
+            HICH Gallery is a family-owned business founded in Chicago by Bety Shahlaei, Fozhan
+            Bozorgi, and Rojin Bozorgi — three women bound by family and by a shared love for the
+            culture, poetry, and artistry of Persia. What started as conversations around a
+            kitchen table about art, identity, and home grew into a gallery and brand that carries
+            those roots into everyday life.
+          </p>
+          <p className="leading-relaxed text-muted-foreground">
+            We create decorative wall art, clothing, and accessories rooted in Persian design —
+            drawing from centuries of pattern, calligraphy, miniature painting, and Sufi
+            symbolism, and reshaping them for modern spaces and modern wardrobes. Every piece we
+            make is an attempt to bring a little bit of that heritage into the homes and lives of
+            the people who wear or display it.
+          </p>
+          <p className="leading-relaxed text-muted-foreground">
+            Based in Chicago, HICH Gallery is our way of building a bridge — between the culture
+            we come from and the community we now call home, between generations of family, and
+            between the idea of nothing and the everything it can become.
           </p>
         </div>
       </section>
 
       <section className="border-y border-border bg-card">
-        <div className="mx-auto grid max-w-[1400px] gap-16 px-6 py-24 md:grid-cols-12 md:px-12">
-          <div className="md:col-span-4">
-            <div className="overflow-hidden">
-              <img
-                src={betsabehPortrait.url}
-                alt="Betsabeh Hasanpour, founder of HICH Gallery"
-                width={800}
-                height={1000}
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
+        <div className="mx-auto max-w-[1400px] gap-16 px-6 py-24 md:px-12">
+          <div className="mb-16 text-center">
+            <span className="text-eyebrow text-accent">Founders</span>
+            <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
+              The family behind HICH
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Three women, one family, and a shared love for Persian culture, poetry, and art.
+            </p>
           </div>
-          <div className="space-y-8 md:col-span-8">
-            <div>
-              <span className="text-eyebrow text-accent">Founder</span>
-              <h2 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-                Betsabeh Hasanpour
-              </h2>
-              <p className="mt-2 text-eyebrow text-muted-foreground">
-                Founder & Contemporary International Visual Artist
-              </p>
+
+          <div className="grid gap-16 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <div className="overflow-hidden">
+                <img
+                  src={betsabehPortrait.url}
+                  alt="Bety Shahlaei, founder and artist of HICH Gallery"
+                  width={800}
+                  height={1000}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full object-cover"
+                />
+              </div>
             </div>
-            <div className="space-y-4 leading-relaxed text-muted-foreground">
-              <p>
-                Betsabeh Hasanpour is a contemporary international visual artist, art educator,
-                and the founder of HICH Gallery, based in Chicago, Illinois.
-              </p>
-              <p>
-                Her artistic practice is grounded in Persian heritage and shaped by a
-                contemporary global perspective. Working across painting, Persian calligraphy,
-                Khattashi calligraphy painting, Tazhib Persian illumination, and mixed media,
-                she creates visually layered works that bridge tradition, emotion, and modern
-                artistic expression.
-              </p>
-              <p>
-                Betsabeh has refined her artistic practice under the guidance of distinguished
-                Iranian masters, including Master Alireza Malekzadeh, Haleh Grayandeh, Master
-                Esfandiyari, Maryam Lamei, and Master Sabouni Rizi.
-              </p>
-              <p>
-                In addition to her studio practice, she has extensive experience teaching art to
-                children and adults and developing creative workshops that foster imagination,
-                self-expression, and cultural awareness. She views art as a universal language
-                that transcends borders and connects people through shared human experience.
-              </p>
-              <p>
-                Her professional collaborations include working with interior designers to
-                create custom artworks for residential spaces, as well as partnering with Nimars
-                Home Staging in Canada on projects involving interior styling and artistic
-                spatial design.
-              </p>
-            </div>
-            <div className="grid gap-8 pt-4 md:grid-cols-2">
+            <div className="space-y-8 md:col-span-8">
               <div>
-                <span className="text-eyebrow text-accent">Education</span>
-                <p className="mt-3 font-display text-xl text-foreground">
-                  Bachelor of Laws (LL.B.) — Iran
+                <h3 className="font-display text-4xl text-foreground md:text-5xl">
+                  Bety Shahlaei
+                </h3>
+                <p className="mt-2 text-eyebrow text-muted-foreground">
+                  Founder & Contemporary International Visual Artist
                 </p>
               </div>
-              <div>
-                <span className="text-eyebrow text-accent">Artistic Fields</span>
-                <ul className="mt-3 grid grid-cols-1 gap-2 text-sm text-muted-foreground sm:grid-cols-2">
-                  {artisticFields.map((field) => (
-                    <li key={field} className="flex items-start gap-2">
-                      <span className="text-accent">·</span>
-                      {field}
-                    </li>
-                  ))}
-                </ul>
+              <div className="space-y-4 leading-relaxed text-muted-foreground">
+                <p>
+                  Bety Shahlaei is a contemporary international visual artist, art educator, and
+                  the founder of HICH Gallery, based in Chicago, Illinois.
+                </p>
+                <p>
+                  Her artistic practice is grounded in Persian heritage and shaped by a
+                  contemporary global perspective. Working across painting, Persian calligraphy,
+                  Khattashi calligraphy painting, Tazhib Persian illumination, and mixed media, she
+                  creates visually layered works that bridge tradition, emotion, and modern
+                  artistic expression.
+                </p>
+                <p>
+                  Bety has refined her artistic practice under the guidance of distinguished
+                  Iranian masters, including Master Alireza Malekzadeh, Haleh Grayandeh, Master
+                  Esfandiyari, Maryam Lamei, and Master Sabouni Rizi.
+                </p>
+                <p>
+                  In addition to her studio practice, she has extensive experience teaching art to
+                  children and adults and developing creative workshops that foster imagination,
+                  self-expression, and cultural awareness. She views art as a universal language
+                  that transcends borders and connects people through shared human experience.
+                </p>
+                <p>
+                  Her professional collaborations include working with interior designers to
+                  create custom artworks for residential spaces, as well as partnering with Nimars
+                  Home Staging in Canada on projects involving interior styling and artistic
+                  spatial design.
+                </p>
               </div>
+              <div className="grid gap-8 pt-4 md:grid-cols-2">
+                <div>
+                  <span className="text-eyebrow text-accent">Education</span>
+                  <p className="mt-3 font-display text-xl text-foreground">
+                    Bachelor of Laws (LL.B.) — Iran
+                  </p>
+                </div>
+                <div>
+                  <span className="text-eyebrow text-accent">Artistic Fields</span>
+                  <ul className="mt-3 grid grid-cols-1 gap-2 text-sm text-muted-foreground sm:grid-cols-2">
+                    {artisticFields.map((field) => (
+                      <li key={field} className="flex items-start gap-2">
+                        <span className="text-accent">·</span>
+                        {field}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-2">
+            <div className="border-t border-border pt-8">
+              <h3 className="font-display text-2xl text-foreground">Fozhan Bozorgi</h3>
+              <p className="mt-1 text-eyebrow text-muted-foreground">Co-founder</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Fozhan brings the family’s vision of Persian artistry into everyday life, helping
+                shape HICH Gallery as a bridge between heritage and modern living.
+              </p>
+            </div>
+            <div className="border-t border-border pt-8">
+              <h3 className="font-display text-2xl text-foreground">Rojin Bozorgi</h3>
+              <p className="mt-1 text-eyebrow text-muted-foreground">Co-founder</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Rojin helps carry the culture, poetry, and artistry of Persia into the gallery’s
+                collections, ensuring each piece tells a story of identity and home.
+              </p>
             </div>
           </div>
         </div>
@@ -196,11 +241,12 @@ function AboutPage() {
       <section className="mx-auto max-w-3xl px-6 py-32 text-center md:px-12">
         <span className="text-eyebrow text-accent">Founding note</span>
         <p className="mt-8 font-display text-3xl italic leading-[1.4] text-foreground md:text-4xl">
-          “We chose the word <em>hich</em> because it holds two things at once — the emptiness
-          before a work is made, and the emptiness that a good work invites into a room.”
+          “HICH Gallery is our way of building a bridge — between the culture we come from and the
+          community we now call home, between generations of family, and between the idea of
+          nothing and the everything it can become.”
         </p>
         <p className="mt-8 text-eyebrow text-muted-foreground">
-          — Betsabeh Hasanpour, Founder & Artist
+          — Bety Shahlaei, Fozhan Bozorgi & Rojin Bozorgi
         </p>
       </section>
     </main>

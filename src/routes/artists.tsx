@@ -11,12 +11,12 @@ export const Route = createFileRoute("/artists")({
       {
         name: "description",
         content:
-          "Betsabeh Hasanpour — contemporary international visual artist, founder of HICH Gallery, working across Persian calligraphy, Tazhib illumination, and mixed media.",
+          "Betsabeh Shahlaei — contemporary international visual artist, founder of HICH Gallery, working across Persian calligraphy, Tazhib illumination, and mixed media.",
       },
       { property: "og:title", content: "Artists — HICH Gallery" },
       {
         property: "og:description",
-        content: "Betsabeh Hasanpour — contemporary international visual artist and founder of HICH Gallery.",
+        content: "Betsabeh Shahlaei — contemporary international visual artist and founder of HICH Gallery.",
       },
     ],
     links: [{ rel: "canonical", href: "/artists" }],
@@ -59,7 +59,7 @@ function ArtistsPage() {
           Artists
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-          HICH Gallery is the studio and platform of Betsabeh Hasanpour, a contemporary
+          HICH Gallery is the studio and platform of Betsabeh Shahlaei, a contemporary
           international visual artist whose practice bridges Persian tradition and modern
           expression.
         </p>
@@ -71,7 +71,7 @@ function ArtistsPage() {
             <div className="overflow-hidden">
               <img
                 src={betsabehPortrait.url}
-                alt="Portrait of Betsabeh Hasanpour"
+                alt="Portrait of Betsabeh Shahlaei"
                 width={900}
                 height={1100}
                 loading="lazy"
@@ -82,7 +82,7 @@ function ArtistsPage() {
           <div className="space-y-8 md:col-span-7">
             <div>
               <h2 className="font-display text-4xl text-foreground md:text-5xl">
-                Betsabeh Hasanpour
+                Betsabeh Shahlaei
               </h2>
               <p className="mt-2 text-eyebrow text-muted-foreground">
                 Contemporary International Visual Artist · Founder of HICH Gallery
@@ -91,7 +91,7 @@ function ArtistsPage() {
             </div>
             <div className="space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                Betsabeh Hasanpour is a contemporary international visual artist, art educator,
+                Betsabeh Shahlaei is a contemporary international visual artist, art educator,
                 and the founder of HICH Gallery, based in Chicago, Illinois.
               </p>
               <p>

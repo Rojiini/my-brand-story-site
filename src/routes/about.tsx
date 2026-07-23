@@ -115,7 +115,7 @@ function AboutPage() {
             <div className="space-y-8 md:col-span-8">
               <div>
                 <h3 className="font-display text-4xl text-foreground md:text-5xl">
-                  Bety Shahlaei
+                  BETSABEH SHAHLAEI
                 </h3>
                 <p className="mt-2 text-eyebrow text-muted-foreground">
                   Founder & Contemporary International Visual Artist
@@ -155,7 +155,7 @@ function AboutPage() {
                 <div>
                   <span className="text-eyebrow text-accent">Education</span>
                   <p className="mt-3 font-display text-xl text-foreground">
-                    Bachelor of Laws (LL.B.) — Iran
+                    Bachelor of Laws — Iran
                   </p>
                 </div>
                 <div>
@@ -246,7 +246,7 @@ function AboutPage() {
           nothing and the everything it can become.”
         </p>
         <p className="mt-8 text-eyebrow text-muted-foreground">
-          — Bety Shahlaei, Fozhan Bozorgi & Rojin Bozorgi
+          — BETSABEH SHAHLAEI, Fozhan Bozorgi & Rojin Bozorgi
         </p>
       </section>
     </main>

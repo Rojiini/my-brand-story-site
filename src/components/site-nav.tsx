@@ -32,7 +32,7 @@ export function SiteNav() {
         </nav>
         <div className="flex items-center gap-4">
           <span className="hidden text-eyebrow text-muted-foreground md:block">
-            MMXXVI
+            SHOPPING CARD
           </span>
           <CartDrawer />
         </div>

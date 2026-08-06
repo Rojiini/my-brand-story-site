@@ -93,11 +93,13 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-void/60 via-void/40 to-void" />
         <div className="relative mx-auto flex min-h-[92vh] max-w-[1400px] flex-col items-center justify-center px-6 py-32 text-center md:px-12">
-          <HichLogo size="lg" variant="light" />
-          <p className="mt-12 max-w-xl font-display text-xl italic text-ivory/85 md:text-2xl">
+          <h1 className="font-display text-5xl italic text-ivory md:text-7xl">
+            HICH Gallery
+          </h1>
+          <p className="mt-6 max-w-xl font-display text-xl italic text-ivory/85 md:text-2xl">
             Where nothing becomes everything.
           </p>
-          <div className="mt-16 flex flex-col items-center gap-4">
+          <div className="mt-12 flex flex-col items-center gap-4">
             <div className="hich-hairline w-24" />
             <span className="text-eyebrow text-accent">{currentShow.eyebrow}</span>
           </div>

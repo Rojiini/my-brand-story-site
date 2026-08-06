@@ -10,12 +10,12 @@ export const Route = createFileRoute("/exhibitions")({
       {
         name: "description",
         content:
-          "Current, upcoming and past exhibitions at HICH Gallery, Paris — a programme devoted to contemporary painting, sculpture and image-making.",
+          "Current, upcoming and past exhibitions at HICH Gallery, Chicago — a programme devoted to contemporary Persian painting, calligraphy and image-making.",
       },
       { property: "og:title", content: "Exhibitions — HICH Gallery" },
       {
         property: "og:description",
-        content: "Current, upcoming and past exhibitions at HICH Gallery, Paris.",
+        content: "Current, upcoming and past exhibitions at HICH Gallery, Chicago.",
       },
     ],
     links: [{ rel: "canonical", href: "/exhibitions" }],

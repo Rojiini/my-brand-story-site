@@ -84,12 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "HICH Gallery is a contemporary art space in Paris presenting exhibitions, artists, and the space between silence and form.",
+          "HICH Gallery is a contemporary Persian art space in Chicago presenting exhibitions, artists, and the space between silence and form.",
       },
       { property: "og:title", content: "HICH Gallery" },
       {
         property: "og:description",
-        content: "A contemporary gallery. Where nothing becomes everything.",
+        content: "A contemporary gallery in Chicago. Where nothing becomes everything.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "HICH Gallery" },
@@ -101,6 +101,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "HICH Gallery",
+          url: "https://my-brand-story-site.lovable.app",
+          email: "info@hichgallery.com",
+          slogan: "Where nothing becomes everything.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "7367 N Ashland Blvd",
+            addressLocality: "Chicago",
+            addressRegion: "IL",
+            postalCode: "60626",
+            addressCountry: "US",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "HICH Gallery",
+          url: "https://my-brand-story-site.lovable.app",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,

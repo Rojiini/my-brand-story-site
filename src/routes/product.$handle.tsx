@@ -23,15 +23,64 @@ const productQueryOptions = (handle: string) =>
   });
 
 export const Route = createFileRoute("/product/$handle")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `${params.handle} — HICH Gallery` },
-      {
-        name: "description",
-        content: "A work available from HICH Gallery.",
-      },
-    ],
-  }),
+  head: ({ params, loaderData }) => {
+    const product = loaderData as
+      | {
+          title?: string;
+          description?: string;
+          priceRange?: { minVariantPrice?: { amount?: string; currencyCode?: string } };
+          images?: { edges?: { node: { url: string } }[] };
+        }
+      | null
+      | undefined;
+    const title = product?.title ?? params.handle;
+    const image = product?.images?.edges?.[0]?.node?.url;
+    const raw = (product?.description ?? "").replace(/\s+/g, " ").trim();
+    const description = (
+      raw.length >= 50
+        ? raw
+        : `${title} — an original work by Betsabeh Shahlaei, available from HICH Gallery, a contemporary Persian art gallery in Chicago.`
+    ).slice(0, 160);
+    const url = `https://my-brand-story-site.lovable.app/product/${params.handle}`;
+    return {
+      meta: [
+        { title: `${title} — HICH Gallery` },
+        { name: "description", content: description },
+        { property: "og:title", content: `${title} — HICH Gallery` },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        ...(image
+          ? [
+              { property: "og:image", content: image },
+              { name: "twitter:image", content: image },
+            ]
+          : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: product
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                name: title,
+                description,
+                ...(image ? { image } : {}),
+                brand: { "@type": "Brand", name: "HICH Gallery" },
+                offers: {
+                  "@type": "Offer",
+                  price: product.priceRange?.minVariantPrice?.amount,
+                  priceCurrency: product.priceRange?.minVariantPrice?.currencyCode,
+                  url,
+                },
+              }),
+            },
+          ]
+        : [],
+    };
+  },
   loader: ({ context, params }) =>
     context.queryClient.ensureQueryData(productQueryOptions(params.handle)),
   component: ProductPage,

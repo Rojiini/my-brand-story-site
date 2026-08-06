@@ -18,6 +18,26 @@ export const Route = createFileRoute("/about")({
       },
     ],
     links: [{ rel: "canonical", href: "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ArtGallery",
+          name: "HICH Gallery",
+          url: "https://my-brand-story-site.lovable.app/about",
+          email: "info@hichgallery.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "7367 N Ashland Blvd",
+            addressLocality: "Chicago",
+            addressRegion: "IL",
+            postalCode: "60626",
+            addressCountry: "US",
+          },
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });

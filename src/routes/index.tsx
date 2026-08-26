@@ -49,10 +49,9 @@ export const Route = createFileRoute("/")({
 
 const currentShow = {
   eyebrow: "Now on view · until 14 September",
-  title: "Le Silence Bleu",
-  artist: "Yasmin Farahani",
-  blurb:
-    "Twelve canvases in indigo and gold leaf. A meditation on emptiness, and what emptiness contains.",
+  title: "Kufic & Gold",
+  artist: "Betsabeh Shahlaei",
+  blurb: "\n",
 };
 
 const featured = [

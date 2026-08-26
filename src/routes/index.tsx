@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
 });
 
 const currentShow = {
-  eyebrow: "Now on view · until 14 September",
+  eyebrow: "NOW ON VIEW ",
   title: "Kufic & Gold",
   artist: "Betsabeh Shahlaei",
   blurb: "\n",

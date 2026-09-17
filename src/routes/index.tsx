@@ -51,7 +51,7 @@ const currentShow = {
   eyebrow: "NOW ON VIEW ",
   title: "Kufic & Gold",
   artist: "Betsabeh Shahlaei",
-  blurb: "\n",
+  blurb: "A square-kufic composition in black sits beside a vertical gilded panel, anchored by three turquoise lozenges. Geometry and shimmer hold each other in balance.",
 };
 
 const featured = [

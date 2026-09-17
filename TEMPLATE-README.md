@@ -63,3 +63,13 @@ the Shopify domain + storefront token are swapped.
 4. Rewrite copy in the route files and update every `head()` block (titles,
    descriptions, og tags) — each route has its own.
 5. Update `public/robots.txt` and the sitemap base URL.
+
+## Note on product photos
+
+To keep the archive small, `public/catalog1/` is not included. Those files are
+identical copies of `src/assets/catalog1/`. If you need the publicly served
+copies (used for Shopify CSV image URLs), recreate them with:
+
+```bash
+mkdir -p public/catalog1 && cp src/assets/catalog1/* public/catalog1/
+```

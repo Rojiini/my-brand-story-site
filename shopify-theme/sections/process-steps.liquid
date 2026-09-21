@@ -1,0 +1,43 @@
+<section class="section {% if section.settings.tinted %}section--card{% endif %}">
+  <div class="wrap">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <div class="steps">
+      {% for block in section.blocks %}
+        <article class="step" {{ block.shopify_attributes }}>
+          <span class="eyebrow step__number">{{ block.settings.number }}</span>
+          <h4>{{ block.settings.title }}</h4>
+          <p class="muted">{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    {% if section.settings.link != blank %}
+      <a class="btn btn--solid" style="margin-top:48px" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Process steps",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How It Works" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From your story to your wall" },
+    { "type": "checkbox", "id": "tinted", "label": "Tinted background", "default": true },
+    { "type": "url", "id": "link", "label": "Button link" },
+    { "type": "text", "id": "link_label", "label": "Button label", "default": "Start your commission" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Share Your Idea" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Tell us what you have in mind or share your story with us." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Process steps" }]
+}
+{% endschema %}

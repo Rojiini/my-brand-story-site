@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ExhibitionsRouteImport } from './routes/exhibitions'
+import { Route as CustomizedArtRouteImport } from './routes/customized-art'
 import { Route as ArtistsRouteImport } from './routes/artists'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -30,6 +31,11 @@ const ShopRoute = ShopRouteImport.update({
 const ExhibitionsRoute = ExhibitionsRouteImport.update({
   id: '/exhibitions',
   path: '/exhibitions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomizedArtRoute = CustomizedArtRouteImport.update({
+  id: '/customized-art',
+  path: '/customized-art',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArtistsRoute = ArtistsRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/artists': typeof ArtistsRoute
+  '/customized-art': typeof CustomizedArtRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/artists': typeof ArtistsRoute
+  '/customized-art': typeof CustomizedArtRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/artists': typeof ArtistsRoute
+  '/customized-art': typeof CustomizedArtRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/artists'
+    | '/customized-art'
     | '/exhibitions'
     | '/shop'
     | '/sitemap.xml'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/artists'
+    | '/customized-art'
     | '/exhibitions'
     | '/shop'
     | '/sitemap.xml'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/artists'
+    | '/customized-art'
     | '/exhibitions'
     | '/shop'
     | '/sitemap.xml'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ArtistsRoute: typeof ArtistsRoute
+  CustomizedArtRoute: typeof CustomizedArtRoute
   ExhibitionsRoute: typeof ExhibitionsRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/exhibitions'
       fullPath: '/exhibitions'
       preLoaderRoute: typeof ExhibitionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/customized-art': {
+      id: '/customized-art'
+      path: '/customized-art'
+      fullPath: '/customized-art'
+      preLoaderRoute: typeof CustomizedArtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/artists': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ArtistsRoute: ArtistsRoute,
+  CustomizedArtRoute: CustomizedArtRoute,
   ExhibitionsRoute: ExhibitionsRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

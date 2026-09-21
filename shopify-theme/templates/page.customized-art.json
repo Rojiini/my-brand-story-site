@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "intro": {
+      "type": "editorial-statement",
+      "settings": {
+        "eyebrow": "Custom & Personalized Art",
+        "heading": "Art Made Just for You",
+        "text": "At HICH Gallery, we believe art can be deeply personal. Our custom art service gives you the opportunity to create a piece that reflects your story, your personality, and your vision."
+      }
+    },
+    "options": {
+      "type": "rich-text",
+      "settings": {
+        "eyebrow": "Personalize",
+        "heading": "Work with our artist",
+        "text": "<p>Work with our artist to create an artwork that is uniquely yours. You can personalize the:</p><ul><li><strong>Color palette</strong> — choose your favorite colors or colors that hold a special meaning for you.</li><li><strong>Poem or words</strong> — add a personal poem, meaningful quote, names, or words that are important to you.</li><li><strong>Size</strong> — choose the dimensions that work perfectly for your space.</li><li><strong>Materials</strong> — select the materials and artistic elements that best fit your vision.</li></ul><p>Whether it is a piece for your home, a meaningful gift, or something that represents an important moment in your life, we will work with you to turn your ideas into art.</p>"
+      }
+    },
+    "story": {
+      "type": "rich-text",
+      "settings": {
+        "eyebrow": "Your Story, Illustrated",
+        "heading": "Tell us your story. We'll turn it into art.",
+        "text": "<p>Your story can become a one-of-a-kind artwork. Share a personal story, memory, relationship, special moment, or meaningful experience with us. Our artist, Betsabeh, will use your story as inspiration to create an original illustration that captures its feeling and meaning.</p><p>You don't need to know exactly what you want the artwork to look like. Just tell us your story.</p><p>From a love story to a childhood memory, a family moment, a journey, or a dream for the future, Betsabeh will transform your words into a visual piece created especially for you.</p><p><em>Your story. Your memories. Your art.</em></p>"
+      }
+    },
+    "steps": {
+      "type": "process-steps",
+      "settings": {
+        "eyebrow": "How It Works",
+        "heading": "Four steps to your own piece",
+        "tinted": true,
+        "link": "mailto:info@hichgallery.com",
+        "link_label": "Tell us your story"
+      },
+      "blocks": {
+        "b1": { "type": "step", "settings": { "number": "01", "title": "Share Your Idea", "text": "Tell us what you have in mind or share your story with us." } },
+        "b2": { "type": "step", "settings": { "number": "02", "title": "Personalize Your Artwork", "text": "Choose your colors, poem or text, size, materials, and other details." } },
+        "b3": { "type": "step", "settings": { "number": "03", "title": "Our Artist Creates", "text": "Betsabeh brings your vision or story to life through an original artwork." } },
+        "b4": { "type": "step", "settings": { "number": "04", "title": "Receive Your One-of-a-Kind Piece", "text": "A piece of art created specifically for you, and no one else." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "details": {
+      "type": "contact-details",
+      "settings": {
+        "label_one": "Commissions",
+        "text_one": "Email us with your idea, story, preferred size and palette.",
+        "label_two": "Correspond",
+        "text_two": "info@hichgallery.com"
+      }
+    },
+    "content": { "type": "main-page" }
+  },
+  "order": ["intro", "options", "story", "steps", "details", "content"]
+}

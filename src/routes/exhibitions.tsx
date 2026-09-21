@@ -1,7 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import exhibition1 from "@/assets/exhibition-1.jpg";
+import laTalk from "@/assets/events/la-2025-IMG_4685.jpg";
+import laCanvas from "@/assets/events/la-2025-IMG_4716.jpg";
+import laTable from "@/assets/events/la-2025-IMG_4725.jpg";
+import laRoom from "@/assets/events/la-2025-IMG_4744.jpg";
+
+const laGallery = [
+  { src: laTalk, alt: "Visitors viewing a calligraphy work at the HICH Gallery Los Angeles event" },
+  { src: laCanvas, alt: "A green calligraphy canvas on display at the Los Angeles event" },
+  { src: laTable, alt: "Guests browsing handmade jewellery at the Los Angeles event" },
+  { src: laRoom, alt: "The gathering room and table at the HICH Gallery Los Angeles event" },
+];
 
 export const Route = createFileRoute("/exhibitions")({
   head: () => ({

@@ -1,0 +1,20 @@
+<section class="section wrap">
+  <span class="eyebrow">The Collection</span>
+  <h1 class="section-title">{{ collection.title | default: 'Shop' }}</h1>
+  <div class="grid" style="margin-top:64px">
+    {% paginate collection.products by 24 %}
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% else %}
+        <p>No works available yet.</p>
+      {% endfor %}
+      {% if paginate.pages > 1 %}
+        <div style="grid-column:1/-1;text-align:center">
+          {% if paginate.previous %}<a class="btn" href="{{ paginate.previous.url }}">← Previous</a>{% endif %}
+          {% if paginate.next %}<a class="btn" href="{{ paginate.next.url }}">Next →</a>{% endif %}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+{% schema %}{"name":"Collection","settings":[]}{% endschema %}

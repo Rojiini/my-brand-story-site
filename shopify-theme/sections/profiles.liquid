@@ -1,0 +1,44 @@
+<section class="section {% if section.settings.tinted %}section--card{% endif %}">
+  <div class="wrap">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    <div class="profiles">
+      {% for block in section.blocks %}
+        <article class="profile" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            <div class="imgwrap imgwrap--45">
+              <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
+            </div>
+          {% endif %}
+          <h4>{{ block.settings.name }}</h4>
+          <p class="eyebrow eyebrow--muted">{{ block.settings.role }}</p>
+          <div class="profile__bio rte">{{ block.settings.bio }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Profiles",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Gallery" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Artists" },
+    { "type": "checkbox", "id": "tinted", "label": "Tinted background", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "profile",
+      "name": "Profile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Portrait" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Betsabeh Shahlaei" },
+        { "type": "text", "id": "role", "label": "Role", "default": "Founder & Artist" },
+        { "type": "richtext", "id": "bio", "label": "Biography", "default": "<p>Contemporary international visual artist working in Persian calligraphy, Khattashi, Tazhib, acrylic and mixed media.</p>" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Profiles" }]
+}
+{% endschema %}

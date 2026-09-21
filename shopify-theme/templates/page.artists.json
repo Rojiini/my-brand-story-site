@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "intro": {
+      "type": "editorial-statement",
+      "settings": {
+        "eyebrow": "Artists",
+        "heading": "The hands behind the work.",
+        "text": "HICH represents artists working in Persian calligraphy, Khattashi, Tazhib, acrylic and mixed media."
+      }
+    },
+    "profiles": {
+      "type": "profiles",
+      "settings": { "eyebrow": "Represented", "heading": "Artists", "tinted": true },
+      "blocks": {
+        "b1": {
+          "type": "profile",
+          "settings": {
+            "name": "Betsabeh Shahlaei",
+            "role": "Founder & Contemporary International Visual Artist",
+            "bio": "<p>Founder of HICH Gallery. Bachelor of Laws — Iran. Fields: Persian Calligraphy, Khattashi, Tazhib, Acrylic and Mixed Media.</p>"
+          }
+        }
+      },
+      "block_order": ["b1"]
+    },
+    "content": { "type": "main-page" }
+  },
+  "order": ["intro", "profiles", "content"]
+}

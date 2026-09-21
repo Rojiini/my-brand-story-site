@@ -1,0 +1,32 @@
+<section class="wrap product">
+  <div>
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}">
+    {% endif %}
+  </div>
+  <div>
+    <span class="eyebrow">{{ product.vendor }}</span>
+    <h1>{{ product.title }}</h1>
+    <div class="price">{{ product.selected_or_first_available_variant.price | money }}</div>
+    <div class="desc">{{ product.description }}</div>
+    <form method="post" action="/cart/add">
+      {% unless product.has_only_default_variant %}
+        {% for variant in product.variants %}
+          <label style="display:block;margin-bottom:8px">
+            <input type="radio" name="id" value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}checked{% endif %} {% unless variant.available %}disabled{% endunless %}>
+            {{ variant.title }} — {{ variant.price | money }}
+          </label>
+        {% endfor %}
+      {% else %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      {% endunless %}
+      <button type="submit" class="btn btn--solid" {% unless product.available %}disabled{% endunless %}>
+        {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+      </button>
+    </form>
+  </div>
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":{{ product.title | json }},"description":{{ product.description | strip_html | json }},"brand":{"@type":"Brand","name":{{ product.vendor | json }}},"offers":{"@type":"Offer","priceCurrency":{{ shop.currency | json }},"price":"{{ product.price | money_without_currency }}","availability":"https://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}"}}
+</script>
+{% schema %}{"name":"Product","settings":[]}{% endschema %}

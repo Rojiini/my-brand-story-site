@@ -57,21 +57,21 @@ const currentShow = {
 const featured = [
   {
     n: "01",
-    title: "Le Silence Bleu",
-    artist: "Yasmin Farahani",
+    title: "Kufic & Gold",
+    artist: "Betsabeh Shahalei",
     dates: "Jun 12 — Sep 14",
     img: exhibition1,
   },
   {
     n: "02",
-    title: "Weight & Wind",
+    title: "pattern of longing",
     artist: "Mateo Aguilar",
     dates: "Apr 04 — Jun 02",
     img: exhibition2,
   },
   {
     n: "03",
-    title: "One Line, One Room",
+    title: "Persian Pasley\n \n\n",
     artist: "Ines Kepler",
     dates: "Jan 18 — Mar 24",
     img: exhibition3,

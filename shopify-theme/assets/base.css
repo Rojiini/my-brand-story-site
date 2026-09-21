@@ -123,3 +123,7 @@ img{max-width:100%;display:block}
 .step{border-top:1px solid rgba(14,14,30,.15);padding-top:24px}
 .step__number{color:var(--persian-gold)}
 .step h4{font-family:var(--display);font-size:1.5rem;margin:12px 0 8px}
+
+@media (min-width: 750px) {
+  .event-gallery { grid-template-columns: repeat(4, 1fr) !important; gap: 24px !important; }
+}

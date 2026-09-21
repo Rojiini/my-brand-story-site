@@ -1,9 +1,9 @@
 <section class="section wrap feature">
   <div class="feature__media">
     {% if section.settings.image %}
-      <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.title }}
     {% else %}
-      <img src="{{ 'exhibition-1.jpg' | asset_url }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+      <img src="{{ 'exhibition-1.jpg' | asset_url }}" alt="{{ section.settings.title | escape }}" width="1200" height="1600" loading="lazy">
     {% endif %}
   </div>
   <div class="feature__text">

@@ -1,7 +1,7 @@
 <section class="wrap product">
   <div>
     {% if product.featured_image %}
-      <img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}">
+      {{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', fetchpriority: 'high', alt: product.featured_image.alt }}
     {% endif %}
   </div>
   <div>
@@ -9,7 +9,7 @@
     <h1>{{ product.title }}</h1>
     <div class="price">{{ product.selected_or_first_available_variant.price | money }}</div>
     <div class="desc">{{ product.description }}</div>
-    <form method="post" action="/cart/add">
+    <form method="post" action="{{ routes.cart_add_url }}">
       {% unless product.has_only_default_variant %}
         {% for variant in product.variants %}
           <label style="display:block;margin-bottom:8px">

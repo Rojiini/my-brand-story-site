@@ -1,8 +1,8 @@
 <section class="hero">
   {% if section.settings.image %}
-    <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | default: shop.name | escape }}">
+    {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.image.alt }}
   {% else %}
-    <img src="{{ 'hero-gallery.jpg' | asset_url }}" alt="{{ shop.name | escape }}">
+    <img src="{{ 'hero-gallery.jpg' | asset_url }}" alt="{{ shop.name | escape }}" width="1600" height="1200" fetchpriority="high">
   {% endif %}
   <div class="inner">
     <h1>{{ section.settings.heading }}</h1>

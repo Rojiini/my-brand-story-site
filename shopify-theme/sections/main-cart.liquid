@@ -2,10 +2,10 @@
   <span class="eyebrow">Your Selection</span>
   <h1 class="section-title">Cart</h1>
   {% if cart.item_count > 0 %}
-    <form action="/cart" method="post">
+    <form action="{{ routes.cart_url }}" method="post">
       {% for item in cart.items %}
         <div class="cart-line">
-          {% if item.image %}<img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}">{% endif %}
+          {% if item.image %}{{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.title }}{% endif %}
           <div style="flex:1">
             <h4>{{ item.product.title }}</h4>
             <p style="font-size:.85rem;color:rgba(14,14,30,.6)">{{ item.variant.title }}</p>
@@ -24,7 +24,7 @@
     </form>
   {% else %}
     <p style="margin-top:48px">Your cart is empty.</p>
-    <a href="/collections/all" class="btn" style="margin-top:24px">Browse the collection</a>
+    <a href="{{ routes.all_products_collection_url }}" class="btn" style="margin-top:24px">Browse the collection</a>
   {% endif %}
 </section>
 {% schema %}{"name":"Cart","settings":[]}{% endschema %}

@@ -1,24 +1,7 @@
 {
   "sections": {
-    "intro": {
-      "type": "editorial-statement",
-      "settings": {
-        "eyebrow": "Exhibitions and Events",
-        "heading": "A programme of stillness.",
-        "text": "Each exhibition at HICH is an invitation to sit with the space between things."
-      }
-    },
-    "feature": { "type": "exhibition-feature", "settings": { "eyebrow": "Now on view · 01", "link_label": "Shop the works" } },
-    "programme": {
-      "type": "programme-grid",
-      "settings": { "eyebrow": "Programme", "heading": "Recent & upcoming" },
-      "blocks": {
-        "b1": { "type": "exhibition", "settings": { "number": "02", "dates": "Apr 04 — Jun 02", "title": "Weight & Wind", "artist": "Mateo Aguilar" } },
-        "b2": { "type": "exhibition", "settings": { "number": "03", "dates": "Jan 18 — Mar 24", "title": "One Line, One Room", "artist": "Ines Kepler" } }
-      },
-      "block_order": ["b1", "b2"]
-    },
+    "events": { "type": "events-page" },
     "content": { "type": "main-page" }
   },
-  "order": ["intro", "feature", "programme", "content"]
+  "order": ["events", "content"]
 }

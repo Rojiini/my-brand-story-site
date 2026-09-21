@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import heroGallery from "@/assets/hero-gallery.jpg";
 import exhibition1 from "@/assets/exhibition-1.jpg";
-import exhibition2 from "@/assets/exhibition-2.jpg";
-import exhibition3 from "@/assets/exhibition-3.jpg";
+import laTalk from "@/assets/events/la-2025-IMG_4685.jpg";
+import laRoom from "@/assets/events/la-2025-IMG_4744.jpg";
 import { HichLogo } from "@/components/hich-logo";
 import {
   type ShopifyProduct,
@@ -57,24 +57,17 @@ const currentShow = {
 const featured = [
   {
     n: "01",
-    title: "Kufic & Gold",
-    artist: "Betsabeh Shahalei",
-    dates: "Jun 12 — Sep 14",
-    img: exhibition1,
+    title: "HICH Gallery Los Angeles Event",
+    artist: "Past Event",
+    dates: "Los Angeles · 2025",
+    img: laRoom,
   },
   {
     n: "02",
-    title: "pattern of longing",
-    artist: "Mateo Aguilar",
-    dates: "Apr 04 — Jun 02",
-    img: exhibition2,
-  },
-  {
-    n: "03",
-    title: "Persian Pasley\n \n\n",
-    artist: "Ines Kepler",
-    dates: "Jan 18 — Mar 24",
-    img: exhibition3,
+    title: "Join Us at Our Next Event",
+    artist: "Upcoming Events",
+    dates: "Details coming soon",
+    img: laTalk,
   },
 ];
 
@@ -186,37 +179,39 @@ function Index() {
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-12">
           <div className="mb-16 flex items-end justify-between">
             <div>
-              <span className="text-eyebrow text-accent">Selected Programme</span>
+              <span className="text-eyebrow text-accent">Events</span>
               <h3 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-                Recent & upcoming
+                Recent & Upcoming
               </h3>
             </div>
             <Link
               to="/exhibitions"
               className="hidden text-eyebrow text-muted-foreground hover:text-accent md:inline"
             >
-              Archive →
+              View All Events →
             </Link>
           </div>
-          <div className="grid gap-x-10 gap-y-16 md:grid-cols-3">
+          <div className="grid gap-x-10 gap-y-16 md:grid-cols-2">
             {featured.map((f) => (
               <article key={f.n} className="group">
-                <div className="overflow-hidden">
-                  <img
-                    src={f.img}
-                    alt={f.title}
-                    width={1000}
-                    height={1300}
-                    loading="lazy"
-                    className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="mt-6 flex items-baseline gap-4">
-                  <span className="text-eyebrow text-accent">{f.n}</span>
-                  <span className="text-eyebrow text-muted-foreground">{f.dates}</span>
-                </div>
-                <h4 className="mt-3 font-display text-2xl text-foreground">{f.title}</h4>
-                <p className="mt-1 text-sm text-muted-foreground">{f.artist}</p>
+                <Link to="/exhibitions" className="block">
+                  <div className="overflow-hidden">
+                    <img
+                      src={f.img}
+                      alt={f.title}
+                      width={1200}
+                      height={1600}
+                      loading="lazy"
+                      className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="mt-6 flex items-baseline gap-4">
+                    <span className="text-eyebrow text-accent">{f.n}</span>
+                    <span className="text-eyebrow text-muted-foreground">{f.dates}</span>
+                  </div>
+                  <h4 className="mt-3 font-display text-2xl text-foreground">{f.title}</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">{f.artist}</p>
+                </Link>
               </article>
             ))}
           </div>

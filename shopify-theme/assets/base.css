@@ -119,3 +119,7 @@ img{max-width:100%;display:block}
 .rte p{margin-bottom:16px}
 .rte a{color:var(--royal-blue);text-decoration:underline}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-top:48px}
+.step{border-top:1px solid rgba(14,14,30,.15);padding-top:24px}
+.step__number{color:var(--persian-gold)}
+.step h4{font-family:var(--display);font-size:1.5rem;margin:12px 0 8px}

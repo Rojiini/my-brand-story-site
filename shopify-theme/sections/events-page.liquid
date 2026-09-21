@@ -13,7 +13,7 @@
     {% if section.settings.past_image %}
       {{ section.settings.past_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.past_title }}
     {% else %}
-      <img src="{{ 'exhibition-1.jpg' | asset_url }}" alt="{{ section.settings.past_title | escape }}" width="1200" height="1600" loading="lazy">
+      <img src="{{ 'la-2025-IMG_4744.jpg' | asset_url }}" alt="{{ section.settings.past_title | escape }}" width="1200" height="1600" loading="lazy">
     {% endif %}
     <div>
       <span class="eyebrow muted">{{ section.settings.past_meta }}</span>
@@ -22,6 +22,20 @@
       <div class="rte">{{ section.settings.past_text }}</div>
     </div>
   </div>
+
+  {% if section.blocks.size > 0 %}
+    <div class="event-gallery" style="margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+      {% for block in section.blocks %}
+        <div {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: block.settings.alt, style: 'width:100%;aspect-ratio:3/4;object-fit:cover' }}
+          {% elsif block.settings.fallback != blank %}
+            <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.alt | escape }}" width="1200" height="1600" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </section>
 
 <section class="section wrap narrow" style="text-align:center">
@@ -68,6 +82,27 @@
     { "type": "text", "id": "notify_label", "label": "Notify label", "default": "Notify me" },
     { "type": "text", "id": "notify_button", "label": "Notify button", "default": "Notify Me" }
   ],
-  "presets": [{ "name": "Events page" }]
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Event photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "HICH Gallery Los Angeles event" },
+        { "type": "text", "id": "fallback", "label": "Theme asset filename (used if no photo is chosen)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Events page",
+      "blocks": [
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4685.jpg", "alt": "Visitors viewing a calligraphy work at the HICH Gallery Los Angeles event" } },
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4716.jpg", "alt": "A green calligraphy canvas on display at the Los Angeles event" } },
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4725.jpg", "alt": "Guests browsing handmade jewellery at the Los Angeles event" } },
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4744.jpg", "alt": "The gathering room and table at the HICH Gallery Los Angeles event" } }
+      ]
+    }
+  ]
 }
 {% endschema %}

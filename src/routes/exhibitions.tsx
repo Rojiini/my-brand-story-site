@@ -1,7 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import exhibition1 from "@/assets/exhibition-1.jpg";
+import laTalk from "@/assets/events/la-2025-IMG_4685.jpg";
+import laCanvas from "@/assets/events/la-2025-IMG_4716.jpg";
+import laTable from "@/assets/events/la-2025-IMG_4725.jpg";
+import laRoom from "@/assets/events/la-2025-IMG_4744.jpg";
+
+const laGallery = [
+  { src: laTalk, alt: "Visitors viewing a calligraphy work at the HICH Gallery Los Angeles event" },
+  { src: laCanvas, alt: "A green calligraphy canvas on display at the Los Angeles event" },
+  { src: laTable, alt: "Guests browsing handmade jewellery at the Los Angeles event" },
+  { src: laRoom, alt: "The gathering room and table at the HICH Gallery Los Angeles event" },
+];
 
 export const Route = createFileRoute("/exhibitions")({
   head: () => ({
@@ -66,10 +76,10 @@ function EventsPage() {
         <article className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-7">
             <img
-              src={exhibition1}
+              src={laRoom}
               alt="HICH Gallery Los Angeles Event"
-              width={1000}
-              height={1300}
+              width={1200}
+              height={1600}
               className="w-full"
               loading="lazy"
             />
@@ -100,6 +110,20 @@ function EventsPage() {
             </div>
           </div>
         </article>
+
+        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          {laGallery.map((photo) => (
+            <img
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              width={1200}
+              height={1600}
+              className="aspect-[3/4] w-full object-cover"
+              loading="lazy"
+            />
+          ))}
+        </div>
       </Section>
 
       <Section label="Upcoming Events">

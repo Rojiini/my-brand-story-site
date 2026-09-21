@@ -82,6 +82,27 @@
     { "type": "text", "id": "notify_label", "label": "Notify label", "default": "Notify me" },
     { "type": "text", "id": "notify_button", "label": "Notify button", "default": "Notify Me" }
   ],
-  "presets": [{ "name": "Events page" }]
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Event photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "HICH Gallery Los Angeles event" },
+        { "type": "text", "id": "fallback", "label": "Theme asset filename (used if no photo is chosen)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Events page",
+      "blocks": [
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4685.jpg", "alt": "Visitors viewing a calligraphy work at the HICH Gallery Los Angeles event" } },
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4716.jpg", "alt": "A green calligraphy canvas on display at the Los Angeles event" } },
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4725.jpg", "alt": "Guests browsing handmade jewellery at the Los Angeles event" } },
+        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4744.jpg", "alt": "The gathering room and table at the HICH Gallery Los Angeles event" } }
+      ]
+    }
+  ]
 }
 {% endschema %}

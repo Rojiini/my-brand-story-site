@@ -110,6 +110,20 @@ function EventsPage() {
             </div>
           </div>
         </article>
+
+        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          {laGallery.map((photo) => (
+            <img
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              width={1200}
+              height={1600}
+              className="aspect-[3/4] w-full object-cover"
+              loading="lazy"
+            />
+          ))}
+        </div>
       </Section>
 
       <Section label="Upcoming Events">

@@ -1,0 +1,32 @@
+<section class="section wrap">
+  <div class="story-feature">
+    <div class="imgwrap--45">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+      {% else %}
+        <img src="{{ section.settings.image_fallback | asset_url }}" alt="{{ section.settings.heading | escape }}" width="1200" height="1500" loading="lazy">
+      {% endif %}
+    </div>
+    <div>
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {% if section.settings.lead != blank %}
+        <p class="story-feature__lead">{{ section.settings.lead }}</p>
+      {% endif %}
+      <div class="rte muted" style="margin-top:24px">{{ section.settings.text }}</div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Story feature",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Image fallback asset", "default": "hero-gallery.jpg" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading (used as image alt)", "default": "HICH Gallery" },
+    { "type": "textarea", "id": "lead", "label": "Lead paragraph" },
+    { "type": "richtext", "id": "text", "label": "Text" }
+  ],
+  "presets": [{ "name": "Story feature" }]
+}
+{% endschema %}

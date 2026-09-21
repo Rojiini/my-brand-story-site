@@ -1,0 +1,73 @@
+<section class="section wrap">
+  <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+  <h1 class="section-title" style="font-size:clamp(2.6rem,6vw,5rem)">{{ section.settings.heading }}</h1>
+  <div class="rte" style="max-width:44rem;margin-top:32px">{{ section.settings.intro }}</div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <span class="eyebrow">{{ section.settings.past_eyebrow }}</span>
+    <hr class="hairline">
+  </div>
+  <div class="grid-2" style="align-items:center">
+    {% if section.settings.past_image %}
+      {{ section.settings.past_image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.past_title }}
+    {% else %}
+      <img src="{{ 'exhibition-1.jpg' | asset_url }}" alt="{{ section.settings.past_title | escape }}" width="1200" height="1600" loading="lazy">
+    {% endif %}
+    <div>
+      <span class="eyebrow muted">{{ section.settings.past_meta }}</span>
+      <h2 class="section-title" style="margin-top:24px">{{ section.settings.past_title }}</h2>
+      <hr class="hairline" style="width:64px;margin:32px 0">
+      <div class="rte">{{ section.settings.past_text }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap narrow" style="text-align:center">
+  <span class="eyebrow">{{ section.settings.upcoming_eyebrow }}</span>
+  <h2 class="section-title">{{ section.settings.upcoming_heading }}</h2>
+  <hr class="hairline" style="width:64px;margin:40px auto">
+  <div class="rte">{{ section.settings.upcoming_text }}</div>
+
+  <div style="margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:32px">
+    <a class="btn" href="mailto:{{ section.settings.contact_email }}?subject=Upcoming%20Events">{{ section.settings.button_label }}</a>
+
+    {% form 'customer', class: 'notify-form' %}
+      <input type="hidden" name="contact[tags]" value="event-notifications">
+      <span class="eyebrow accent">{{ section.settings.notify_label }}</span>
+      {% if form.posted_successfully? %}
+        <p class="rte" style="margin-top:16px">You're on the list — we'll be in touch about our next event.</p>
+      {% else %}
+        <div style="margin-top:16px;display:flex;border:1px solid currentColor">
+          <input type="email" name="contact[email]" required placeholder="Your email address" aria-label="Email address for event notifications" style="flex:1;background:transparent;border:0;padding:12px 16px;font:inherit">
+          <button type="submit" class="btn" style="border:0">{{ section.settings.notify_button }}</button>
+        </div>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Events page",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Events" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Art Beyond the Gallery" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>At HICH Gallery, we believe art is not limited to a gallery space. Our events bring artists, art lovers, and communities together to experience creativity, culture, and meaningful connections.</p>" },
+    { "type": "text", "id": "past_eyebrow", "label": "Past event eyebrow", "default": "Past Event" },
+    { "type": "text", "id": "past_meta", "label": "Past event meta", "default": "Los Angeles · 2025" },
+    { "type": "text", "id": "past_title", "label": "Past event title", "default": "HICH Gallery Los Angeles Event" },
+    { "type": "image_picker", "id": "past_image", "label": "Past event image" },
+    { "type": "richtext", "id": "past_text", "label": "Past event text", "default": "<p>Last year, HICH Gallery brought its art and creative vision to Los Angeles for a special gathering celebrating contemporary art and artistic expression.</p><p>The event brought together art enthusiasts, creatives, and members of the community to explore the work of our artists and connect through art.</p><p>It was a meaningful opportunity for HICH Gallery to meet people beyond our gallery space, share our artists' work, and create new connections within the art community.</p><p><em>Thank you to everyone who joined us and helped make the event memorable.</em></p>" },
+    { "type": "text", "id": "upcoming_eyebrow", "label": "Upcoming eyebrow", "default": "Upcoming Events" },
+    { "type": "text", "id": "upcoming_heading", "label": "Upcoming heading", "default": "Join Us at Our Next Event" },
+    { "type": "richtext", "id": "upcoming_text", "label": "Upcoming text", "default": "<p>We are always looking for new ways to bring art closer to our community.</p><p>Our upcoming events will feature art exhibitions, artist showcases, creative experiences, and opportunities to meet and connect with artists and fellow art lovers.</p><p>Stay connected with HICH Gallery to be the first to hear about our next event, including the date, location, featured artists, and special experiences.</p><p><em>We look forward to seeing you at our next event.</em></p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "View Upcoming Events" },
+    { "type": "text", "id": "contact_email", "label": "Contact email", "default": "info@hichgallery.com" },
+    { "type": "text", "id": "notify_label", "label": "Notify label", "default": "Notify me" },
+    { "type": "text", "id": "notify_button", "label": "Notify button", "default": "Notify Me" }
+  ],
+  "presets": [{ "name": "Events page" }]
+}
+{% endschema %}

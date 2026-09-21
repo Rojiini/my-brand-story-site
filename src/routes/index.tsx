@@ -5,7 +5,6 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import heroGallery from "@/assets/hero-gallery.jpg";
-import exhibition1 from "@/assets/exhibition-1.jpg";
 import laTalk from "@/assets/events/la-2025-IMG_4685.jpg";
 import laRoom from "@/assets/events/la-2025-IMG_4744.jpg";
 import { HichLogo } from "@/components/hich-logo";
@@ -140,37 +139,6 @@ function Index() {
               All works →
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Featured exhibition */}
-      <section className="mx-auto grid max-w-[1400px] gap-16 px-6 py-32 md:grid-cols-12 md:px-12">
-        <div className="md:col-span-7">
-          <img
-            src={exhibition1}
-            alt={currentShow.title}
-            width={1000}
-            height={1300}
-            className="w-full"
-            loading="lazy"
-          />
-        </div>
-        <div className="flex flex-col justify-center md:col-span-5">
-          <span className="text-eyebrow text-accent">Current Exhibition · 01</span>
-          <h3 className="mt-6 font-display text-5xl italic text-foreground md:text-6xl">
-            {currentShow.title}
-          </h3>
-          <p className="mt-4 font-display text-xl text-muted-foreground">
-            by {currentShow.artist}
-          </p>
-          <div className="hich-hairline my-8 w-16" />
-          <p className="text-base leading-relaxed text-muted-foreground">{currentShow.blurb}</p>
-          <Link
-            to="/exhibitions"
-            className="mt-10 inline-flex w-fit items-center gap-3 border-b border-foreground pb-1 text-eyebrow text-foreground transition-colors hover:border-accent hover:text-accent"
-          >
-            All Exhibitions →
-          </Link>
         </div>
       </section>
 

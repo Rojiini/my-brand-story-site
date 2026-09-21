@@ -1,0 +1,78 @@
+<section class="section {% if section.settings.tinted %}section--card{% endif %}">
+  <div class="wrap">
+    {% if section.settings.eyebrow != blank or section.settings.section_heading != blank %}
+      <div style="text-align:center;margin-bottom:64px">
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2 class="section-title">{{ section.settings.section_heading }}</h2>
+        {% if section.settings.section_text != blank %}
+          <p class="muted" style="max-width:640px;margin:16px auto 0">{{ section.settings.section_text }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="artist-feature">
+      <div class="artist-feature__media">
+        <div class="imgwrap--45">
+          {% if section.settings.portrait %}
+            {{ section.settings.portrait | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.name }}
+          {% else %}
+            <img src="{{ section.settings.portrait_fallback | asset_url }}" alt="{{ section.settings.name | escape }}" width="900" height="1125" loading="lazy">
+          {% endif %}
+        </div>
+      </div>
+      <div class="artist-feature__body">
+        <h3 class="artist-feature__name">{{ section.settings.name }}</h3>
+        <p class="eyebrow eyebrow--muted">{{ section.settings.role }}</p>
+        {% if section.settings.location != blank %}
+          <p class="eyebrow eyebrow--muted">{{ section.settings.location }}</p>
+        {% endif %}
+        <div class="rte artist-feature__bio">{{ section.settings.bio }}</div>
+        <div class="artist-feature__meta">
+          <div>
+            <span class="eyebrow">{{ section.settings.education_label }}</span>
+            <p class="artist-feature__education">{{ section.settings.education }}</p>
+          </div>
+          {% if section.blocks.size > 0 %}
+            <div>
+              <span class="eyebrow">{{ section.settings.fields_label }}</span>
+              <ul class="artist-feature__fields">
+                {% for block in section.blocks %}
+                  <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Artist feature",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Section eyebrow" },
+    { "type": "text", "id": "section_heading", "label": "Section heading" },
+    { "type": "textarea", "id": "section_text", "label": "Section text" },
+    { "type": "checkbox", "id": "tinted", "label": "Tinted background", "default": false },
+    { "type": "image_picker", "id": "portrait", "label": "Portrait" },
+    { "type": "text", "id": "portrait_fallback", "label": "Portrait fallback asset", "default": "betsabeh-portrait.jpg" },
+    { "type": "text", "id": "name", "label": "Name", "default": "Betsabeh Shahlaei" },
+    { "type": "text", "id": "role", "label": "Role", "default": "Founder & Contemporary International Visual Artist" },
+    { "type": "text", "id": "location", "label": "Location", "default": "Chicago, Illinois" },
+    { "type": "richtext", "id": "bio", "label": "Biography", "default": "<p>Betsabeh Shahlaei is a contemporary international visual artist, art educator, and the founder of HICH Gallery, based in Chicago, Illinois.</p>" },
+    { "type": "text", "id": "education_label", "label": "Education label", "default": "Education" },
+    { "type": "text", "id": "education", "label": "Education", "default": "Bachelor of Laws — Iran" },
+    { "type": "text", "id": "fields_label", "label": "Fields label", "default": "Artistic Fields" }
+  ],
+  "blocks": [
+    {
+      "type": "field",
+      "name": "Artistic field",
+      "settings": [{ "type": "text", "id": "text", "label": "Field", "default": "Persian Calligraphy" }]
+    }
+  ],
+  "presets": [{ "name": "Artist feature" }]
+}
+{% endschema %}

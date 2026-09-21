@@ -1,29 +1,49 @@
 {
   "sections": {
-    "intro": {
-      "type": "editorial-statement",
+    "hero": {
+      "type": "page-hero",
       "settings": {
-        "eyebrow": "Artists",
-        "heading": "The hands behind the work.",
-        "text": "HICH represents artists working in Persian calligraphy, Khattashi, Tazhib, acrylic and mixed media."
+        "eyebrow": "Roster",
+        "heading": "Artists",
+        "intro": "HICH Gallery is the studio and platform of Betsabeh Shahlaei, a contemporary international visual artist whose practice bridges Persian tradition and modern expression."
       }
     },
-    "profiles": {
-      "type": "profiles",
-      "settings": { "eyebrow": "Represented", "heading": "Artists", "tinted": true },
-      "blocks": {
-        "b1": {
-          "type": "profile",
-          "settings": {
-            "name": "Betsabeh Shahlaei",
-            "role": "Founder & Contemporary International Visual Artist",
-            "bio": "<p>Founder of HICH Gallery. Bachelor of Laws — Iran. Fields: Persian Calligraphy, Khattashi, Tazhib, Acrylic and Mixed Media.</p>"
-          }
-        }
+    "artist": {
+      "type": "artist-feature",
+      "settings": {
+        "tinted": false,
+        "portrait_fallback": "betsabeh-portrait.jpg",
+        "name": "Betsabeh Shahlaei",
+        "role": "Contemporary International Visual Artist · Founder of HICH Gallery",
+        "location": "Chicago, Illinois",
+        "bio": "<p>Betsabeh Shahlaei is a contemporary international visual artist, art educator, and the founder of HICH Gallery, based in Chicago, Illinois.</p><p>Her artistic practice is grounded in Persian heritage and shaped by a contemporary global perspective. Working across painting, Persian calligraphy, Khattashi calligraphy painting, Tazhib Persian illumination, and mixed media, she creates visually layered works that bridge tradition, emotion, and modern artistic expression.</p><p>Betsabeh has refined her artistic practice under the guidance of distinguished Iranian masters, including Master Alireza Malekzadeh, Haleh Grayandeh, Master Esfandiyari, Maryam Lamei, and Master Sabouni Rizi.</p><p>In addition to her studio practice, she has extensive experience teaching art to children and adults and developing creative workshops that foster imagination, self-expression, and cultural awareness. She views art as a universal language that transcends borders and connects people through shared human experience.</p><p>Her professional collaborations include working with interior designers to create custom artworks for residential spaces, as well as partnering with Nimars Home Staging in Canada on projects involving interior styling and artistic spatial design.</p>",
+        "education_label": "Education",
+        "education": "Bachelor of Laws — Iran",
+        "fields_label": "Fields"
       },
-      "block_order": ["b1"]
+      "blocks": {
+        "f1": { "type": "field", "settings": { "text": "Persian Calligraphy" } },
+        "f2": { "type": "field", "settings": { "text": "Khattashi Calligraphy Painting" } },
+        "f3": { "type": "field", "settings": { "text": "Tazhib Persian Illumination" } },
+        "f4": { "type": "field", "settings": { "text": "Acrylic Painting" } },
+        "f5": { "type": "field", "settings": { "text": "Mixed Media Art" } },
+        "f6": { "type": "field", "settings": { "text": "Art Education & Creative Workshops" } },
+        "f7": { "type": "field", "settings": { "text": "Cultural Art Programs" } },
+        "f8": { "type": "field", "settings": { "text": "Art Collaboration for Interior Design Projects" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8"]
+    },
+    "works": {
+      "type": "image-gallery",
+      "settings": { "eyebrow": "Selected works", "tinted": true },
+      "blocks": {
+        "w1": { "type": "image", "settings": { "fallback": "artist-1.jpg", "alt": "Gilded Verse — Persian calligraphy on gold leaf" } },
+        "w2": { "type": "image", "settings": { "fallback": "artist-2.jpg", "alt": "Cobalt Bloom I — white plate with blue floral patterns" } },
+        "w3": { "type": "image", "settings": { "fallback": "artist-3.jpg", "alt": "Cobalt Bloom II — white plate with blue floral patterns" } }
+      },
+      "block_order": ["w1", "w2", "w3"]
     },
     "content": { "type": "main-page" }
   },
-  "order": ["intro", "profiles", "content"]
+  "order": ["hero", "artist", "works", "content"]
 }

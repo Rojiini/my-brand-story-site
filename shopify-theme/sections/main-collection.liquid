@@ -1,6 +1,13 @@
 <section class="section wrap">
-  <span class="eyebrow">The Collection</span>
-  <h1 class="section-title">{{ collection.title | default: 'Shop' }}</h1>
+  <div style="max-width:42rem">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h1 class="page-hero__title" style="font-size:clamp(2.8rem,6vw,4.5rem)">{{ collection.title | default: 'Shop' }}</h1>
+    {% if collection.description != blank %}
+      <div class="rte muted" style="margin-top:24px">{{ collection.description }}</div>
+    {% elsif section.settings.subtitle != blank %}
+      <p class="story-feature__lead muted" style="font-size:1.1rem">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
   <div class="grid" style="margin-top:64px">
     {% paginate collection.products by 24 %}
       {% for product in collection.products %}
@@ -17,4 +24,12 @@
     {% endpaginate %}
   </div>
 </section>
-{% schema %}{"name":"Collection","settings":[]}{% endschema %}
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Editions & Works" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "A curated selection of limited works, editions, and prints from the gallery program." }
+  ]
+}
+{% endschema %}

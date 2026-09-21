@@ -1,25 +1,103 @@
 {
   "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": { "eyebrow": "The Gallery", "heading": "About & Visit" }
+    },
     "story": {
-      "type": "rich-text",
+      "type": "story-feature",
       "settings": {
+        "image_fallback": "hero-gallery.jpg",
         "eyebrow": "Our Story",
-        "heading": "HICH Gallery",
-        "text": "<p>HICH Gallery began with a word — هیچ, hich — which means “nothing” in Farsi. Founded in Chicago by Bety Shahlaei, Fozhan Bozorgi and Rojin Bozorgi: three women bound by family.</p>"
+        "heading": "HICH Gallery artwork",
+        "lead": "HICH Gallery began with a word — هیچ, hich — which means \"nothing\" in Farsi. But in Persian and Sufi thought, nothing is never empty.",
+        "text": "<p>It is the space before creation, the silence before a poem, the blank wall before a story is told. From that idea came our name, and our belief: where nothing becomes everything.</p><p>HICH Gallery is a family-owned business founded in Chicago by Bety Shahlaei, Fozhan Bozorgi, and Rojin Bozorgi — three women bound by family and by a shared love for the culture, poetry, and artistry of Persia. What started as conversations around a kitchen table about art, identity, and home grew into a gallery and brand that carries those roots into everyday life.</p><p>We create decorative wall art, clothing, and accessories rooted in Persian design — drawing from centuries of pattern, calligraphy, miniature painting, and Sufi symbolism, and reshaping them for modern spaces and modern wardrobes. Every piece we make is an attempt to bring a little bit of that heritage into the homes and lives of the people who wear or display it.</p><p>Based in Chicago, HICH Gallery is our way of building a bridge — between the culture we come from and the community we now call home, between generations of family, and between the idea of nothing and the everything it can become.</p>"
       }
     },
-    "founders": {
-      "type": "profiles",
-      "settings": { "eyebrow": "Founders", "heading": "Three women, one word", "tinted": true },
-      "blocks": {
-        "b1": { "type": "profile", "settings": { "name": "Betsabeh Shahlaei", "role": "Founder & Artist", "bio": "<p>Contemporary international visual artist working in Persian calligraphy, Khattashi, Tazhib, acrylic and mixed media.</p>" } },
-        "b2": { "type": "profile", "settings": { "name": "Fozhan Bozorgi", "role": "Co-founder", "bio": "<p>Co-founder of HICH Gallery.</p>" } },
-        "b3": { "type": "profile", "settings": { "name": "Rojin Bozorgi", "role": "Co-founder", "bio": "<p>Co-founder of HICH Gallery.</p>" } }
+    "founder": {
+      "type": "artist-feature",
+      "settings": {
+        "eyebrow": "Founders",
+        "section_heading": "The family behind HICH",
+        "section_text": "Three women, one family, and a shared love for Persian culture, poetry, and art.",
+        "tinted": true,
+        "portrait_fallback": "betsabeh-portrait.jpg",
+        "name": "BETSABEH SHAHLAEI",
+        "role": "Founder & Contemporary International Visual Artist",
+        "location": "",
+        "bio": "<p>Bety Shahlaei is a contemporary international visual artist, art educator, and the founder of HICH Gallery, based in Chicago, Illinois.</p><p>Her artistic practice is grounded in Persian heritage and shaped by a contemporary global perspective. Working across painting, Persian calligraphy, Khattashi calligraphy painting, Tazhib Persian illumination, and mixed media, she creates visually layered works that bridge tradition, emotion, and modern artistic expression.</p><p>Bety has refined her artistic practice under the guidance of distinguished Iranian masters, including Master Alireza Malekzadeh, Haleh Grayandeh, Master Esfandiyari, Maryam Lamei, and Master Sabouni Rizi.</p><p>In addition to her studio practice, she has extensive experience teaching art to children and adults and developing creative workshops that foster imagination, self-expression, and cultural awareness. She views art as a universal language that transcends borders and connects people through shared human experience.</p><p>Her professional collaborations include working with interior designers to create custom artworks for residential spaces, as well as partnering with Nimars Home Staging in Canada on projects involving interior styling and artistic spatial design.</p>",
+        "education_label": "Education",
+        "education": "Bachelor of Laws — Iran",
+        "fields_label": "Artistic Fields"
       },
-      "block_order": ["b1", "b2", "b3"]
+      "blocks": {
+        "f1": { "type": "field", "settings": { "text": "Persian Calligraphy" } },
+        "f2": { "type": "field", "settings": { "text": "Khattashi Calligraphy Painting" } },
+        "f3": { "type": "field", "settings": { "text": "Tazhib Persian Illumination" } },
+        "f4": { "type": "field", "settings": { "text": "Acrylic Painting" } },
+        "f5": { "type": "field", "settings": { "text": "Mixed Media Art" } },
+        "f6": { "type": "field", "settings": { "text": "Art Education & Creative Workshops" } },
+        "f7": { "type": "field", "settings": { "text": "Cultural Art Programs" } },
+        "f8": { "type": "field", "settings": { "text": "Art Collaboration for Interior Design Projects" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8"]
     },
-    "details": { "type": "contact-details" },
+    "cofounders": {
+      "type": "profiles",
+      "settings": { "eyebrow": "Co-founders", "heading": "Fozhan & Rojin", "tinted": false },
+      "blocks": {
+        "b1": {
+          "type": "profile",
+          "settings": {
+            "name": "Fozhan Bozorgi",
+            "role": "Co-founder",
+            "bio": "<p>Fozhan brings the family's vision of Persian artistry into everyday life, helping shape HICH Gallery as a bridge between heritage and modern living.</p>"
+          }
+        },
+        "b2": {
+          "type": "profile",
+          "settings": {
+            "name": "Rojin Bozorgi",
+            "role": "Co-founder",
+            "bio": "<p>Rojin helps carry the culture, poetry, and artistry of Persia into the gallery's collections, ensuring each piece tells a story of identity and home.</p>"
+          }
+        }
+      },
+      "block_order": ["b1", "b2"]
+    },
+    "details": {
+      "type": "contact-details",
+      "settings": {
+        "label_one": "Mailbox",
+        "text_one": "7367 N Ashland Blvd, Chicago, IL 60626, United States",
+        "label_two": "Correspond",
+        "text_two": "info@hichgallery.com"
+      }
+    },
+    "visit": {
+      "type": "visit-hours",
+      "settings": {
+        "hours_label": "Hours",
+        "contact_label": "Correspond",
+        "email": "info@hichgallery.com",
+        "note": "For press, sales & studio visits."
+      },
+      "blocks": {
+        "h1": { "type": "hours", "settings": { "day": "Wednesday — Friday", "time": "11:00 — 19:00" } },
+        "h2": { "type": "hours", "settings": { "day": "Saturday", "time": "11:00 — 20:00" } },
+        "h3": { "type": "hours", "settings": { "day": "Sunday", "time": "12:00 — 18:00" } },
+        "h4": { "type": "hours", "settings": { "day": "Monday — Tuesday", "time": "By appointment" } }
+      },
+      "block_order": ["h1", "h2", "h3", "h4"]
+    },
+    "note": {
+      "type": "quote",
+      "settings": {
+        "quote": "“HICH Gallery is our way of building a bridge — between the culture we come from and the community we now call home, between generations of family, and between the idea of nothing and the everything it can become.”",
+        "source": "— BETSABEH SHAHLAEI, Fozhan Bozorgi & Rojin Bozorgi"
+      }
+    },
     "content": { "type": "main-page" }
   },
-  "order": ["story", "founders", "details", "content"]
+  "order": ["hero", "story", "founder", "cofounders", "details", "visit", "note", "content"]
 }

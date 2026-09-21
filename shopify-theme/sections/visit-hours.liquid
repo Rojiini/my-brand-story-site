@@ -1,0 +1,43 @@
+<section class="section wrap">
+  <div class="details">
+    <div>
+      <span class="eyebrow">{{ section.settings.hours_label }}</span>
+      <dl class="hours">
+        {% for block in section.blocks %}
+          <div class="hours__row" {{ block.shopify_attributes }}>
+            <dt>{{ block.settings.day }}</dt>
+            <dd class="eyebrow eyebrow--muted">{{ block.settings.time }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+    </div>
+    <div>
+      <span class="eyebrow">{{ section.settings.contact_label }}</span>
+      <p class="contact-email">{{ section.settings.email }}</p>
+      <p class="eyebrow eyebrow--muted" style="margin-top:16px">{{ section.settings.note }}</p>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Visit & hours",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "hours_label", "label": "Hours label", "default": "Hours" },
+    { "type": "text", "id": "contact_label", "label": "Contact label", "default": "Correspond" },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@hichgallery.com" },
+    { "type": "text", "id": "note", "label": "Note", "default": "For press, sales & studio visits." }
+  ],
+  "blocks": [
+    {
+      "type": "hours",
+      "name": "Hours row",
+      "settings": [
+        { "type": "text", "id": "day", "label": "Day", "default": "Wednesday — Friday" },
+        { "type": "text", "id": "time", "label": "Time", "default": "11:00 — 19:00" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Visit & hours" }]
+}
+{% endschema %}

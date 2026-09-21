@@ -76,10 +76,10 @@ function EventsPage() {
         <article className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-7">
             <img
-              src={exhibition1}
+              src={laRoom}
               alt="HICH Gallery Los Angeles Event"
-              width={1000}
-              height={1300}
+              width={1200}
+              height={1600}
               className="w-full"
               loading="lazy"
             />

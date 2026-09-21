@@ -22,6 +22,16 @@ Everything important is editable in **Customize** (Theme Editor):
 - Header: which menu to show. Footer: tagline, mailbox address, email, copyright.
 - Theme settings → Brand colours: ivory, royal blue, Persian gold, void night.
 
+## Source and deployment
+
+This folder is the canonical production storefront source. Make storefront UI
+changes here, validate with `bun run theme:check` from the repository root, and
+deploy through the workflow described in the root `SHOPIFY-DEPLOYMENT.md`.
+
+`config/settings_data.json` is excluded from normal pushes so a deployment does
+not overwrite merchant-selected global Theme Editor settings. Pull the remote
+theme before intentionally bringing Theme Editor configuration back into source.
+
 ## Structure
 
 - `layout/theme.liquid` — document shell, fonts, brand colour variables

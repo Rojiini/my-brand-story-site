@@ -1,0 +1,11 @@
+[environments.development]
+store = "4j4mx2-h2.myshopify.com"
+path = "shopify-theme"
+
+[environments.preview]
+store = "4j4mx2-h2.myshopify.com"
+path = "shopify-theme"
+
+[environments.production]
+store = "4j4mx2-h2.myshopify.com"
+path = "shopify-theme"

@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": { "type": "image-hero", "settings": { "heading": "HICH Gallery", "tagline": "Where nothing becomes everything.", "eyebrow": "NOW ON VIEW" } },
+    "statement": { "type": "editorial-statement" },
+    "shop": { "type": "featured-collection" },
+    "feature": { "type": "exhibition-feature", "settings": { "link_label": "All Exhibitions" } },
+    "programme": {
+      "type": "programme-grid",
+      "blocks": {
+        "b1": { "type": "exhibition", "settings": { "number": "01", "dates": "Jun 12 — Sep 14", "title": "Le Silence Bleu", "artist": "Yasmin Farahani" } },
+        "b2": { "type": "exhibition", "settings": { "number": "02", "dates": "Apr 04 — Jun 02", "title": "Weight & Wind", "artist": "Mateo Aguilar" } },
+        "b3": { "type": "exhibition", "settings": { "number": "03", "dates": "Jan 18 — Mar 24", "title": "One Line, One Room", "artist": "Ines Kepler" } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "quote": { "type": "quote" }
+  },
+  "order": ["hero", "statement", "shop", "feature", "programme", "quote"]
+}

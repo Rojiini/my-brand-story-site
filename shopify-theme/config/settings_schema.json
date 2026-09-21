@@ -1,0 +1,19 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "HICH Gallery",
+    "theme_version": "2.0.0",
+    "theme_author": "HICH Gallery",
+    "theme_documentation_url": "https://hichgallery.com",
+    "theme_support_url": "mailto:info@hichgallery.com"
+  },
+  {
+    "name": "Brand colours",
+    "settings": [
+      { "type": "color", "id": "color_ivory", "label": "Ivory canvas", "default": "#F3EDE1" },
+      { "type": "color", "id": "color_royal", "label": "Royal blue", "default": "#4A5FD9" },
+      { "type": "color", "id": "color_gold", "label": "Persian gold", "default": "#C9A961" },
+      { "type": "color", "id": "color_void", "label": "Void night", "default": "#0E0E1E" }
+    ]
+  }
+]

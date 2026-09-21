@@ -1,0 +1,30 @@
+<section class="section wrap" style="max-width:900px">
+  <span class="eyebrow">Your Selection</span>
+  <h1 class="section-title">Cart</h1>
+  {% if cart.item_count > 0 %}
+    <form action="{{ routes.cart_url }}" method="post">
+      {% for item in cart.items %}
+        <div class="cart-line">
+          {% if item.image %}{{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.title }}{% endif %}
+          <div style="flex:1">
+            <h4>{{ item.product.title }}</h4>
+            <p style="font-size:.85rem;color:rgba(14,14,30,.6)">{{ item.variant.title }}</p>
+            <p>{{ item.final_line_price | money }}</p>
+          </div>
+          <div class="qty">
+            <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width:56px;padding:6px">
+          </div>
+        </div>
+      {% endfor %}
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px">
+        <button type="submit" class="btn">Update</button>
+        <strong style="font-size:1.3rem">Total {{ cart.total_price | money }}</strong>
+      </div>
+      <button type="submit" name="checkout" class="btn btn--solid" style="width:100%;margin-top:24px">Checkout</button>
+    </form>
+  {% else %}
+    <p style="margin-top:48px">Your cart is empty.</p>
+    <a href="{{ routes.all_products_collection_url }}" class="btn" style="margin-top:24px">Browse the collection</a>
+  {% endif %}
+</section>
+{% schema %}{"name":"Cart","settings":[]}{% endschema %}

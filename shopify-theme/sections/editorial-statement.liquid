@@ -1,0 +1,16 @@
+<section class="section statement wrap">
+  <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+  <h2>{{ section.settings.heading }}</h2>
+  <p>{{ section.settings.text }}</p>
+</section>
+{% schema %}
+{
+  "name": "Statement",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "A Gallery in Chicago" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "HICH — the Persian word for nothing — is where our questions begin." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "We are a contemporary art gallery devoted to painters, sculptors, and image-makers working at the edge of stillness. Each exhibition is an invitation to sit with the space between things." }
+  ],
+  "presets": [{ "name": "Statement" }]
+}
+{% endschema %}

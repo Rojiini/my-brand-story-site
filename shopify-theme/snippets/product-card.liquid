@@ -1,0 +1,17 @@
+<article class="card">
+  <a href="{{ product.url }}">
+    <div class="imgwrap">
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: product.featured_image.alt }}
+      {% endif %}
+    </div>
+  </a>
+  <a href="{{ product.url }}"><h4>{{ product.title }}</h4></a>
+  <span class="price">{{ product.price | money }}</span>
+  <form method="post" action="{{ routes.cart_add_url }}">
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    <button type="submit" class="btn" {% unless product.available %}disabled{% endunless %}>
+      {% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
+    </button>
+  </form>
+</article>

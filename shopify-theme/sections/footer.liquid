@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div>
+      <a href="{{ routes.root_url }}" class="logo logo--light logo--start">{% render 'hich-logo' %}</a>
+      <p class="tag" style="margin-top:24px">{{ section.settings.tagline }}</p>
+    </div>
+    <div>
+      <div class="eyebrow">{{ section.settings.label_one }}</div>
+      <p>{{ section.settings.address }}</p>
+    </div>
+    <div>
+      <div class="eyebrow">{{ section.settings.label_two }}</div>
+      <p>{{ section.settings.email }}</p>
+    </div>
+  </div>
+  <div class="bar wrap">
+    <span>{{ section.settings.copyright }}</span>
+    <span>{{ section.settings.city }}</span>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Where nothing becomes everything." },
+    { "type": "text", "id": "label_one", "label": "First label", "default": "Mailbox" },
+    { "type": "html", "id": "address", "label": "Address", "default": "7367 N Ashland Blvd<br>Chicago, IL 60626<br>United States" },
+    { "type": "text", "id": "label_two", "label": "Second label", "default": "Correspond" },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@hichgallery.com" },
+    { "type": "text", "id": "copyright", "label": "Copyright", "default": "© HICH Gallery · MMXXVI" },
+    { "type": "text", "id": "city", "label": "City", "default": "Chicago" }
+  ]
+}
+{% endschema %}

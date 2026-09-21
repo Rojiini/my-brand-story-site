@@ -9,7 +9,12 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "theme:check": "bunx @shopify/cli@latest theme check --path shopify-theme",
+    "theme:dev": "bunx @shopify/cli@latest theme dev --environment development",
+    "theme:pull": "bunx @shopify/cli@latest theme pull --environment development",
+    "theme:push:preview": "bunx @shopify/cli@latest theme push --environment preview --unpublished",
+    "theme:push:production": "bunx @shopify/cli@latest theme push --environment production --allow-live"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

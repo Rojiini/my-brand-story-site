@@ -1,0 +1,16 @@
+<section class="section wrap narrow">
+  <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+  <h2 class="section-title">{{ section.settings.heading }}</h2>
+  <div class="rte" style="margin-top:32px">{{ section.settings.text }}</div>
+</section>
+{% schema %}
+{
+  "name": "Rich text",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "HICH Gallery" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>HICH Gallery began with a word — هیچ, hich — which means nothing in Farsi.</p>" }
+  ],
+  "presets": [{ "name": "Rich text" }]
+}
+{% endschema %}

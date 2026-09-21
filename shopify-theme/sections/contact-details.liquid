@@ -1,0 +1,24 @@
+<section class="section wrap">
+  <div class="details">
+    <div>
+      <div class="eyebrow">{{ section.settings.label_one }}</div>
+      <p class="muted">{{ section.settings.text_one }}</p>
+    </div>
+    <div>
+      <div class="eyebrow">{{ section.settings.label_two }}</div>
+      <p class="muted">{{ section.settings.text_two }}</p>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Contact details",
+  "settings": [
+    { "type": "text", "id": "label_one", "label": "First label", "default": "Mailbox" },
+    { "type": "textarea", "id": "text_one", "label": "First text", "default": "7367 N Ashland Blvd, Chicago, IL 60626, United States" },
+    { "type": "text", "id": "label_two", "label": "Second label", "default": "Correspond" },
+    { "type": "textarea", "id": "text_two", "label": "Second text", "default": "info@hichgallery.com" }
+  ],
+  "presets": [{ "name": "Contact details" }]
+}
+{% endschema %}

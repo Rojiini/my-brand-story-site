@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+
+# Preserve merchant-selected global Theme Editor settings on deploy.
+config/settings_data.json

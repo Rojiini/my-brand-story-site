@@ -1,0 +1,14 @@
+<section class="section wrap quote">
+  <p class="quote__text">{{ section.settings.quote }}</p>
+  <p class="eyebrow eyebrow--muted quote__source">{{ section.settings.source }}</p>
+</section>
+{% schema %}
+{
+  "name": "Quote",
+  "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "“Emptiness is not the absence of the world. It is the shape the world takes when we stop insisting on it.”" },
+    { "type": "text", "id": "source", "label": "Source", "default": "— from the founding note" }
+  ],
+  "presets": [{ "name": "Quote" }]
+}
+{% endschema %}

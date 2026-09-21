@@ -1,0 +1,94 @@
+name: Shopify theme
+
+on:
+  pull_request:
+    paths:
+      - "shopify-theme/**"
+      - "shopify.theme.toml"
+      - ".github/workflows/shopify-theme.yml"
+  push:
+    branches: [main]
+    paths:
+      - "shopify-theme/**"
+      - "shopify.theme.toml"
+      - ".github/workflows/shopify-theme.yml"
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Choose a safe preview deploy or publish the approved theme"
+        required: true
+        type: choice
+        default: deploy-preview
+        options:
+          - deploy-preview
+          - publish
+      confirmation:
+        description: "Type publish to confirm a production publish"
+        required: false
+        type: string
+
+concurrency:
+  group: hich-shopify-theme
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate native theme
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --global @shopify/cli@latest
+      - run: shopify theme check --path shopify-theme
+
+  deploy-preview:
+    name: Deploy preview theme
+    if: github.event_name == 'workflow_dispatch' && inputs.action == 'deploy-preview'
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: shopify-preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --global @shopify/cli@latest
+      - name: Push to the unpublished preview theme
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          SHOPIFY_PREVIEW_THEME_ID: ${{ secrets.SHOPIFY_PREVIEW_THEME_ID }}
+        run: >-
+          shopify theme push
+          --path shopify-theme
+          --store 4j4mx2-h2.myshopify.com
+          --password "$SHOPIFY_CLI_THEME_TOKEN"
+          --theme "$SHOPIFY_PREVIEW_THEME_ID"
+          --nodelete
+
+  publish:
+    name: Publish approved theme
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      inputs.action == 'publish' &&
+      inputs.confirmation == 'publish'
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: shopify-production
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --global @shopify/cli@latest
+      - name: Publish the approved Shopify theme
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+          SHOPIFY_LIVE_THEME_ID: ${{ secrets.SHOPIFY_LIVE_THEME_ID }}
+        run: >-
+          shopify theme publish
+          --store 4j4mx2-h2.myshopify.com
+          --password "$SHOPIFY_CLI_THEME_TOKEN"
+          --theme "$SHOPIFY_LIVE_THEME_ID"
+          --force

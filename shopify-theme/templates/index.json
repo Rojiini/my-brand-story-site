@@ -6,12 +6,12 @@
     "feature": { "type": "exhibition-feature", "settings": { "link_label": "All Exhibitions" } },
     "programme": {
       "type": "programme-grid",
+      "settings": { "eyebrow": "Events", "heading": "Recent & Upcoming", "link": "shopify://pages/exhibitions", "link_label": "View All Events" },
       "blocks": {
-        "b1": { "type": "exhibition", "settings": { "number": "01", "dates": "Jun 12 — Sep 14", "title": "Le Silence Bleu", "artist": "Yasmin Farahani" } },
-        "b2": { "type": "exhibition", "settings": { "number": "02", "dates": "Apr 04 — Jun 02", "title": "Weight & Wind", "artist": "Mateo Aguilar" } },
-        "b3": { "type": "exhibition", "settings": { "number": "03", "dates": "Jan 18 — Mar 24", "title": "One Line, One Room", "artist": "Ines Kepler" } }
+        "b1": { "type": "exhibition", "settings": { "number": "01", "dates": "Los Angeles · 2025", "title": "HICH Gallery Los Angeles Event", "artist": "Past Event", "link": "shopify://pages/exhibitions", "fallback": "la-2025-IMG_4744.jpg" } },
+        "b2": { "type": "exhibition", "settings": { "number": "02", "dates": "Details coming soon", "title": "Join Us at Our Next Event", "artist": "Upcoming Events", "link": "shopify://pages/exhibitions", "fallback": "la-2025-IMG_4685.jpg" } }
       },
-      "block_order": ["b1", "b2", "b3"]
+      "block_order": ["b1", "b2"]
     },
     "quote": { "type": "quote" }
   },

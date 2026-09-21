@@ -1,80 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { toast } from "sonner";
 import exhibition1 from "@/assets/exhibition-1.jpg";
-import exhibition2 from "@/assets/exhibition-2.jpg";
-import exhibition3 from "@/assets/exhibition-3.jpg";
 
 export const Route = createFileRoute("/exhibitions")({
   head: () => ({
     meta: [
-      { title: "Exhibitions — HICH Gallery" },
+      { title: "Events — HICH Gallery" },
       {
         name: "description",
         content:
-          "Current, upcoming and past exhibitions at HICH Gallery, Chicago — a programme devoted to contemporary Persian painting, calligraphy and image-making.",
+          "Art beyond the gallery — HICH Gallery events bring artists, art lovers, and communities together in Chicago and beyond.",
       },
-      { property: "og:title", content: "Exhibitions — HICH Gallery" },
+      { property: "og:title", content: "Events — HICH Gallery" },
       {
         property: "og:description",
-        content: "Current, upcoming and past exhibitions at HICH Gallery, Chicago.",
+        content:
+          "Art beyond the gallery — exhibitions, artist showcases, and creative experiences from HICH Gallery.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/exhibitions" }],
   }),
-  component: ExhibitionsPage,
+  component: EventsPage,
 });
-
-const current = [
-  {
-    n: "01",
-    title: "Le Silence Bleu",
-    artist: "Yasmin Farahani",
-    dates: "12 June — 14 September 2026",
-    room: "Room I · Ground floor",
-    img: exhibition1,
-    blurb:
-      "Twelve canvases in indigo and gold leaf. A meditation on emptiness, and what emptiness contains.",
-  },
-];
-
-const upcoming = [
-  {
-    n: "02",
-    title: "Weight & Wind",
-    artist: "Mateo Aguilar",
-    dates: "02 October — 08 December 2026",
-    room: "Room II · Mezzanine",
-    img: exhibition2,
-    blurb:
-      "Bronze forms carved from lost wax. Aguilar's first Parisian solo, marking a decade of quiet practice.",
-  },
-];
-
-const past = [
-  {
-    n: "03",
-    title: "One Line, One Room",
-    artist: "Ines Kepler",
-    dates: "18 January — 24 March 2026",
-    img: exhibition3,
-    blurb: "A single mark repeated. The gesture as architecture.",
-  },
-  {
-    n: "04",
-    title: "Threshold Studies",
-    artist: "Rafael Osei",
-    dates: "22 October — 30 December 2025",
-    img: exhibition2,
-    blurb: "Sculpture and shadow at the edge of the visible.",
-  },
-  {
-    n: "05",
-    title: "Ivory Interior",
-    artist: "Group Show",
-    dates: "07 July — 12 September 2025",
-    img: exhibition3,
-    blurb: "Six painters on the colour of quiet.",
-  },
-];
 
 function Section({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -88,102 +38,121 @@ function Section({ label, children }: { label: string; children: React.ReactNode
   );
 }
 
-function ExhibitionsPage() {
+function EventsPage() {
+  const [email, setEmail] = useState("");
+
+  const notify = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    toast.success("You're on the list — we'll be in touch about our next event.");
+    setEmail("");
+  };
+
   return (
     <main>
       <header className="mx-auto max-w-[1400px] px-6 pb-8 pt-24 md:px-12 md:pt-32">
-        <span className="text-eyebrow text-accent">Programme</span>
+        <span className="text-eyebrow text-accent">Events</span>
         <h1 className="mt-6 font-display text-6xl leading-[1.05] text-foreground md:text-8xl">
-          Exhibitions
+          Art Beyond the Gallery
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-          Four to six exhibitions each year, developed in close conversation with the artists.
-          Entry is free, always.
+          At HICH Gallery, we believe art is not limited to a gallery space. Our events bring
+          artists, art lovers, and communities together to experience creativity, culture, and
+          meaningful connections.
         </p>
       </header>
 
-      <Section label="Now on view">
-        {current.map((e) => (
-          <article key={e.n} className="grid gap-14 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <img
-                src={e.img}
-                alt={e.title}
-                width={1000}
-                height={1300}
-                className="w-full"
-                loading="lazy"
-              />
+      <Section label="Past Event">
+        <article className="grid gap-14 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <img
+              src={exhibition1}
+              alt="HICH Gallery Los Angeles Event"
+              width={1000}
+              height={1300}
+              className="w-full"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col justify-center md:col-span-5">
+            <span className="text-eyebrow text-muted-foreground">Los Angeles · 2025</span>
+            <h2 className="mt-6 font-display text-4xl italic text-foreground md:text-5xl">
+              HICH Gallery Los Angeles Event
+            </h2>
+            <div className="hich-hairline my-8 w-16" />
+            <div className="space-y-4 leading-relaxed text-muted-foreground">
+              <p>
+                Last year, HICH Gallery brought its art and creative vision to Los Angeles for a
+                special gathering celebrating contemporary art and artistic expression.
+              </p>
+              <p>
+                The event brought together art enthusiasts, creatives, and members of the community
+                to explore the work of our artists and connect through art.
+              </p>
+              <p>
+                It was a meaningful opportunity for HICH Gallery to meet people beyond our gallery
+                space, share our artists' work, and create new connections within the art
+                community.
+              </p>
+              <p className="font-display text-lg italic text-foreground">
+                Thank you to everyone who joined us and helped make the event memorable.
+              </p>
             </div>
-            <div className="flex flex-col justify-center md:col-span-5">
-              <span className="text-eyebrow text-muted-foreground">
-                {e.n} · {e.room}
-              </span>
-              <h2 className="mt-6 font-display text-5xl italic text-foreground md:text-6xl">
-                {e.title}
-              </h2>
-              <p className="mt-4 font-display text-xl text-muted-foreground">by {e.artist}</p>
-              <p className="mt-2 text-eyebrow text-accent">{e.dates}</p>
-              <div className="hich-hairline my-8 w-16" />
-              <p className="leading-relaxed text-muted-foreground">{e.blurb}</p>
-            </div>
-          </article>
-        ))}
+          </div>
+        </article>
       </Section>
 
-      <Section label="Upcoming">
-        {upcoming.map((e) => (
-          <article
-            key={e.n}
-            className="grid gap-14 md:grid-cols-12 md:[&>*:first-child]:order-2"
-          >
-            <div className="md:col-span-7">
-              <img
-                src={e.img}
-                alt={e.title}
-                width={1000}
-                height={1300}
-                className="w-full"
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col justify-center md:col-span-5">
-              <span className="text-eyebrow text-muted-foreground">
-                {e.n} · {e.room}
-              </span>
-              <h2 className="mt-6 font-display text-5xl italic text-foreground md:text-6xl">
-                {e.title}
-              </h2>
-              <p className="mt-4 font-display text-xl text-muted-foreground">by {e.artist}</p>
-              <p className="mt-2 text-eyebrow text-accent">{e.dates}</p>
-              <div className="hich-hairline my-8 w-16" />
-              <p className="leading-relaxed text-muted-foreground">{e.blurb}</p>
-            </div>
-          </article>
-        ))}
-      </Section>
+      <Section label="Upcoming Events">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-5xl italic text-foreground md:text-6xl">
+            Join Us at Our Next Event
+          </h2>
+          <div className="hich-hairline mx-auto my-10 w-16" />
+          <div className="space-y-4 leading-relaxed text-muted-foreground">
+            <p>We are always looking for new ways to bring art closer to our community.</p>
+            <p>
+              Our upcoming events will feature art exhibitions, artist showcases, creative
+              experiences, and opportunities to meet and connect with artists and fellow art
+              lovers.
+            </p>
+            <p>
+              Stay connected with HICH Gallery to be the first to hear about our next event,
+              including the date, location, featured artists, and special experiences.
+            </p>
+            <p className="font-display text-lg italic text-foreground">
+              We look forward to seeing you at our next event.
+            </p>
+          </div>
 
-      <Section label="Archive">
-        <div className="grid gap-x-10 gap-y-16 md:grid-cols-3">
-          {past.map((e) => (
-            <article key={e.n}>
-              <img
-                src={e.img}
-                alt={e.title}
-                width={1000}
-                height={1300}
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover"
-              />
-              <div className="mt-6 flex items-baseline gap-4">
-                <span className="text-eyebrow text-accent">{e.n}</span>
-                <span className="text-eyebrow text-muted-foreground">{e.dates}</span>
+          <div className="mt-12 flex flex-col items-center gap-8">
+            <a
+              href="mailto:info@hichgallery.com?subject=Upcoming%20Events"
+              className="inline-block border border-foreground px-10 py-4 text-eyebrow text-foreground transition-colors hover:bg-foreground hover:text-background"
+            >
+              View Upcoming Events
+            </a>
+
+            <form onSubmit={notify} className="w-full max-w-md">
+              <span className="text-eyebrow text-accent">Notify me</span>
+              <div className="mt-4 flex border border-foreground">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  aria-label="Email address for event notifications"
+                  className="w-full bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="shrink-0 bg-foreground px-6 text-eyebrow text-background transition-opacity hover:opacity-80"
+                >
+                  Notify Me
+                </button>
               </div>
-              <h3 className="mt-3 font-display text-2xl text-foreground">{e.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{e.artist}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{e.blurb}</p>
-            </article>
-          ))}
+            </form>
+          </div>
         </div>
       </Section>
     </main>

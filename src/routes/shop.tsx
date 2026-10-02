@@ -45,7 +45,7 @@ function ShopError({ error, reset }: ErrorComponentProps) {
   return (
     <div className="mx-auto max-w-2xl px-6 py-32 text-center">
       <h1 className="font-display text-3xl">The shop could not load</h1>
-      <p className="mt-3 text-sm text-muted-foreground">{error.message}</p>
+      <p className="mt-3 text-sm text-muted-foreground">{error instanceof Error ? error.message : String(error)}</p>
       <button
         onClick={() => {
           router.invalidate();

@@ -1,3 +1,4 @@
+import type { ErrorComponentProps } from "@tanstack/react-router";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
 import { Suspense } from "react";
@@ -39,7 +40,7 @@ export const Route = createFileRoute("/shop")({
   notFoundComponent: () => <p className="p-12">Not found.</p>,
 });
 
-function ShopError({ error, reset }: { error: Error; reset: () => void }) {
+function ShopError({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
   return (
     <div className="mx-auto max-w-2xl px-6 py-32 text-center">

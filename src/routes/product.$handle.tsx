@@ -189,7 +189,7 @@ function ProductDetail() {
           <div className="grid grid-cols-4 gap-2">
             {images.slice(1).map((e: any, i: number) => (
               <div key={i} className="aspect-square overflow-hidden bg-secondary/30">
-                <img src={e.node.url} alt="" className="h-full w-full object-cover" />
+                <img src={e.node.url} alt="" className="h-full w-full object-contain" />
               </div>
             ))}
           </div>

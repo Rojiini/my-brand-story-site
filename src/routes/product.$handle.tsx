@@ -177,11 +177,11 @@ function ProductDetail() {
     <div className="grid gap-12 md:grid-cols-2 md:gap-16">
       <div className="space-y-4">
         {mainImg && (
-          <div className="aspect-[3/4] w-full overflow-hidden bg-secondary/30">
+          <div className="flex w-full items-center justify-center bg-secondary/30">
             <img
               src={mainImg.url}
               alt={mainImg.altText ?? product.title}
-              className="h-full w-full object-cover"
+              className="h-auto w-full object-contain md:max-h-[85vh] md:w-auto md:max-w-full"
             />
           </div>
         )}
@@ -189,7 +189,7 @@ function ProductDetail() {
           <div className="grid grid-cols-4 gap-2">
             {images.slice(1).map((e: any, i: number) => (
               <div key={i} className="aspect-square overflow-hidden bg-secondary/30">
-                <img src={e.node.url} alt="" className="h-full w-full object-cover" />
+                <img src={e.node.url} alt="" className="h-full w-full object-contain" />
               </div>
             ))}
           </div>

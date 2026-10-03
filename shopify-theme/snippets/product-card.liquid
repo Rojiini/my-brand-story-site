@@ -2,7 +2,7 @@
   <a href="{{ product.url }}">
     <div class="imgwrap">
       {% if product.featured_image %}
-        {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: product.featured_image.alt }}
+        {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '300, 450, 600, 800', sizes: '(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw', alt: product.featured_image.alt }}
       {% endif %}
     </div>
   </a>

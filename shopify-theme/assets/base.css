@@ -47,7 +47,7 @@ img{max-width:100%;display:block}
 /* product grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:64px 40px}
 .card .imgwrap{aspect-ratio:3/4;overflow:hidden;background:rgba(14,14,30,.05)}
-.card img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.card img{width:100%;height:100%;object-fit:contain;transition:transform .7s}
 .card:hover img{transform:scale(1.03)}
 .card h4{font-size:1.3rem;margin-top:16px}
 .card .price{font-size:.9rem;color:rgba(14,14,30,.6)}
@@ -164,3 +164,16 @@ img{max-width:100%;display:block}
   .artist-feature__fields{grid-template-columns:1fr 1fr}
   .image-gallery{grid-template-columns:repeat(3,1fr)}
 }
+
+/* Artwork-safe product images: never crop, never stretch */
+html,body{overflow-x:hidden}
+.product>*{min-width:0}
+.product__media{display:flex;flex-direction:column;gap:12px}
+.artwork-frame{width:100%;display:flex;align-items:center;justify-content:center;background:rgba(14,14,30,.03)}
+.artwork-img{display:block;width:auto;max-width:100%;height:auto;max-height:85vh;object-fit:contain}
+.product__thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.product__thumbs .artwork-frame{aspect-ratio:1/1}
+.product__thumbs .artwork-img{max-height:100%;width:100%;height:100%;object-fit:contain}
+@media(min-width:900px){.product__media{position:sticky;top:96px;align-self:start}}
+@media(max-width:900px){.product{gap:32px;padding:48px 0}.artwork-img{max-height:none;width:100%}}
+.card .imgwrap img{object-fit:contain}

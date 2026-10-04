@@ -1,5 +1,5 @@
 <section class="section wrap" style="max-width:800px">
-  <h1 class="section-title">{{ page.title }}</h1>
+  {% if section.settings.show_title %}<h1 class="section-title">{{ page.title }}</h1>{% endif %}
   <div style="margin-top:40px">{{ page.content }}</div>
 </section>
-{% schema %}{"name":"Page","settings":[]}{% endschema %}
+{% schema %}{"name":"Page","settings":[{"type":"checkbox","id":"show_title","label":"Show page title","default":true}]}{% endschema %}

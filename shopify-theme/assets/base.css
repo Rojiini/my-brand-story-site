@@ -177,3 +177,9 @@ html,body{overflow-x:hidden}
 @media(min-width:900px){.product__media{position:sticky;top:96px;align-self:start}}
 @media(max-width:900px){.product{gap:32px;padding:48px 24px}.artwork-img{max-height:none;width:100%}}
 .card .imgwrap img{object-fit:contain}
+
+/* About page: keep long names, contact details, and hours inside narrow screens. */
+.template-page .section.wrap{padding-inline:24px}
+.story-feature>*,.artist-feature>*,.artist-feature__meta>*,.details>*,.profiles>*{min-width:0}
+.artist-feature__name,.contact-email,.details p,.profile__bio{overflow-wrap:anywhere}
+@media(max-width:749px){.hours__row{flex-wrap:wrap;gap:8px 24px}}

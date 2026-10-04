@@ -97,7 +97,7 @@
         "source": "— BETSABEH SHAHLAEI, Fozhan Bozorgi & Rojin Bozorgi"
       }
     },
-    "content": { "type": "main-page" }
+    "content": { "type": "main-page", "settings": { "show_title": false } }
   },
   "order": ["hero", "story", "founder", "cofounders", "details", "visit", "note", "content"]
 }

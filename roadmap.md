@@ -1,5 +1,6 @@
 # Roadmap
 
+- [ ] Package and validate a complete uploadable HICH theme containing the About & Visit page.
 - [x] Add the existing native Shopify theme as tracked source.
 - [x] Preserve the Online Store 2.0 directory structure and Theme Editor controls.
 - [x] Add local validation, preview, pull, and production scripts.

@@ -1,12 +1,13 @@
-import { describe, expect, test } from "bun:test";
+import { describe, it } from "node:test";
+import assert from "node:assert/strict";
 import { newsletterSchema, inquirySchema } from "./contact-forms";
 const subscriber = { email: "reader@example.com", firstName: "Art", lastName: "Lover" };
 describe("Newsletter consent", () => {
-  test("rejects signup without explicit consent", () => expect(newsletterSchema.safeParse({ ...subscriber, consent: false }).success).toBe(false));
-  test("accepts a valid consenting subscriber", () => expect(newsletterSchema.safeParse({ ...subscriber, consent: true }).success).toBe(true));
-  test("rejects malformed email addresses", () => expect(newsletterSchema.safeParse({ ...subscriber, email: "invalid", consent: true }).success).toBe(false));
+  it("rejects signup without explicit consent", () => assert.equal(newsletterSchema.safeParse({ ...subscriber, consent: false }).success, false));
+  it("accepts a valid consenting subscriber", () => assert.equal(newsletterSchema.safeParse({ ...subscriber, consent: true }).success, true));
+  it("rejects malformed email addresses", () => assert.equal(newsletterSchema.safeParse({ ...subscriber, email: "invalid", consent: true }).success, false));
 });
-test("inquiries do not require or imply a newsletter subscription", () => {
+it("inquiries do not require or imply a newsletter subscription", () => {
   const result = inquirySchema.parse({ name: "Reader", email: "reader@example.com", topic: "General inquiry", message: "I have a question about your art." });
-  expect("consent" in result).toBe(false);
+  assert.equal("consent" in result, false);
 });

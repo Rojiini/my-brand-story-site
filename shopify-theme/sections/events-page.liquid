@@ -47,18 +47,10 @@
   <div style="margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:32px">
     <a class="btn" href="mailto:{{ section.settings.contact_email }}?subject=Upcoming%20Events">{{ section.settings.button_label }}</a>
 
-    {% form 'customer', class: 'notify-form' %}
-      <input type="hidden" name="contact[tags]" value="event-notifications">
+    <div class="notify-form">
       <span class="eyebrow accent">{{ section.settings.notify_label }}</span>
-      {% if form.posted_successfully? %}
-        <p class="rte" style="margin-top:16px">You're on the list — we'll be in touch about our next event.</p>
-      {% else %}
-        <div style="margin-top:16px;display:flex;border:1px solid currentColor">
-          <input type="email" name="contact[email]" required placeholder="Your email address" aria-label="Email address for event notifications" style="flex:1;background:transparent;border:0;padding:12px 16px;font:inherit">
-          <button type="submit" class="btn" style="border:0">{{ section.settings.notify_button }}</button>
-        </div>
-      {% endif %}
-    {% endform %}
+      {% render 'newsletter-form', section: section, signup_tag: 'event-notifications', signup_label: section.settings.notify_button, hide_names: true %}
+    </div>
   </div>
 </section>
 

@@ -10,7 +10,8 @@
     </div>
     <div>
       <div class="eyebrow">{{ section.settings.label_two }}</div>
-      <p>{{ section.settings.email }}</p>
+      <p><a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a></p>
+      {% if pages['contact'] != blank %}<a class="underline-link" href="{{ pages['contact'].url }}">Contact Us</a>{% endif %}
     </div>
   </div>
   <div class="bar wrap">

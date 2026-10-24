@@ -4,9 +4,12 @@
       {% render 'hich-logo' %}
     </a>
     <nav class="main-nav" aria-label="Main">
+      {% assign has_contact = false %}
       {% for link in section.settings.menu.links %}
+        {% if link.url == pages['contact'].url %}{% assign has_contact = true %}{% endif %}
         <a href="{{ link.url }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a>
       {% endfor %}
+      {% if pages['contact'] != blank and has_contact == false %}<a href="{{ pages['contact'].url }}">{{ section.settings.contact_label | escape }}</a>{% endif %}
     </nav>
     <div class="header-actions">
       <a href="{{ routes.search_url }}" class="eyebrow eyebrow--muted hide-mobile">Search</a>
@@ -23,6 +26,7 @@
     {% for link in section.settings.menu.links %}
       <a href="{{ link.url }}">{{ link.title }}</a>
     {% endfor %}
+    {% if pages['contact'] != blank and has_contact == false %}<a href="{{ pages['contact'].url }}">{{ section.settings.contact_label | escape }}</a>{% endif %}
     <a href="{{ routes.search_url }}">Search</a>
   </nav>
 </header>
@@ -30,7 +34,8 @@
 {
   "name": "Header",
   "settings": [
-    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "text", "id": "contact_label", "label": "Contact link label", "default": "Contact Us" }
   ]
 }
 {% endschema %}

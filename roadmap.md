@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add and verify product photo sliders in the preview and native Shopify theme, then package the complete updated ZIP.
+- [x] Add and verify product photo sliders in the preview and native Shopify theme, then package the complete updated ZIP.
 
 - [x] Add Contact Us with native Shopify inquiries and consent-based newsletter collection; mirror the preview, verify layouts, and package the complete theme.
 - [ ] Confirm live inquiry delivery and subscriber records (blocked: install the new theme, assign Contact Us template, and test an owned email address in Shopify).

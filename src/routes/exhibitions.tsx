@@ -3,13 +3,11 @@ import { useState } from "react";
 import { toast } from "sonner";
 import laTalk from "@/assets/events/la-2025-IMG_4685.jpg";
 import laCanvas from "@/assets/events/la-2025-IMG_4716.jpg";
-import laTable from "@/assets/events/la-2025-IMG_4725.jpg";
 import laRoom from "@/assets/events/la-2025-IMG_4744.jpg";
 
 const laGallery = [
   { src: laTalk, alt: "Visitors viewing a calligraphy work at the HICH Gallery Los Angeles event" },
   { src: laCanvas, alt: "A green calligraphy canvas on display at the Los Angeles event" },
-  { src: laTable, alt: "Guests browsing handmade jewellery at the Los Angeles event" },
   { src: laRoom, alt: "The gathering room and table at the HICH Gallery Los Angeles event" },
 ];
 
@@ -111,7 +109,7 @@ function EventsPage() {
           </div>
         </article>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
           {laGallery.map((photo) => (
             <img
               key={photo.src}

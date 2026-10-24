@@ -20,3 +20,5 @@ Do not implement a React-only production storefront. The React app under `src/`
 is a visual reference unless the user explicitly requests a preview-only change.
 
 Contact inquiries and newsletter subscribers use Shopify's native contact/customer forms; preview forms post to the Shopify store, so no separate subscriber database or simulated success is used.
+
+Product photos use a native scroll-snap gallery in Shopify and an Embla gallery in the visual reference; both read the product's existing images to preserve native catalog ownership.

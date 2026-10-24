@@ -49,6 +49,7 @@ export const Route = createFileRoute("/product/$handle")({
         { property: "og:title", content: `${title} — HICH Gallery` },
         { property: "og:description", content: description },
         { property: "og:type", content: "product" },
+        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:url", content: url },
         ...(image
           ? [

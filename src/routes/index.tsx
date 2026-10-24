@@ -27,6 +27,8 @@ const productsQueryOptions = queryOptions({
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "HICH Gallery — Contemporary Art" },
       {
         name: "description",

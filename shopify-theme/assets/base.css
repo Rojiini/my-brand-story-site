@@ -213,3 +213,16 @@ html,body{overflow-x:hidden}
 @media(min-width:1024px){.contact-layout{grid-template-columns:5fr 7fr}.contact-newsletter__inner{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.form-row{grid-template-columns:1fr}.contact-email-link{font-size:1.5rem}.contact-layout{gap:48px}}
 @media(max-width:1100px){.main-nav{display:none}.nav-toggle{display:block}.mobile-nav:not([hidden]){display:flex}}
+
+/* Product photo slider: full artwork, natural proportions, native swipe. */
+.product-gallery__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.product-gallery__track::-webkit-scrollbar{display:none}
+.product-gallery__slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.product-gallery__controls{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:.9rem}
+.product-gallery__arrow{width:44px;height:44px;padding:0;letter-spacing:0;font-size:1.25rem}
+.product-gallery__thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.product-gallery__thumb{width:80px;height:80px;flex:0 0 80px;padding:4px;border-color:var(--aged-bronze)}
+.product-gallery__thumb[aria-pressed=true]{border:2px solid var(--royal-blue)}
+.product-gallery__thumb:hover{background:var(--ivory)}
+.product-gallery__thumb img{width:100%;height:100%;object-fit:contain}
+.product-gallery__track:focus-visible,.product-gallery__controls button:focus-visible,.product-gallery__thumb:focus-visible{outline:2px solid var(--royal-blue);outline-offset:2px}

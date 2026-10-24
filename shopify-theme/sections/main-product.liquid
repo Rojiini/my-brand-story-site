@@ -1,31 +1,40 @@
 <section class="wrap product">
-  <div class="product__media">
-    {% if product.media.size > 0 %}
-      {% assign main = product.featured_media | default: product.media.first %}
-      {% if main.preview_image %}
-        <div class="artwork-frame">
-          {{ main.preview_image | image_url: width: 2400 | image_tag:
+  <div class="product__media" data-product-gallery role="region" aria-roledescription="carousel" aria-label="{{ product.title | escape }} photos">
+    {% if product.images.size > 0 %}
+      <div class="product-gallery__track" data-gallery-track tabindex="0" aria-label="Product photos">
+        {% for image in product.images %}
+          {% assign photo_alt = image.alt | default: product.title %}
+          <div class="artwork-frame product-gallery__slide" data-gallery-slide role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ product.images.size }}">
+          {% if forloop.first %}
+          {{ image | image_url: width: 2400 | image_tag:
             loading: 'eager',
             fetchpriority: 'high',
             widths: '400, 600, 800, 1000, 1200, 1600, 2000, 2400',
             sizes: '(min-width: 900px) calc((min(100vw, 1400px) - 112px) / 2), calc(100vw - 48px)',
             class: 'artwork-img',
-            alt: main.preview_image.alt | default: product.title }}
+            alt: photo_alt }}
+          {% else %}
+          {{ image | image_url: width: 2400 | image_tag:
+            loading: 'lazy',
+            widths: '400, 600, 800, 1000, 1200, 1600, 2000, 2400',
+            sizes: '(min-width: 900px) calc((min(100vw, 1400px) - 112px) / 2), calc(100vw - 48px)',
+            class: 'artwork-img',
+            alt: photo_alt }}
+          {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      {% if product.images.size > 1 %}
+        <div class="product-gallery__controls">
+          <button type="button" class="btn product-gallery__arrow" data-gallery-prev aria-label="Previous photo" title="Previous photo">&#8592;</button>
+          <span data-gallery-count aria-live="polite" aria-atomic="true">1 / {{ product.images.size }}</span>
+          <button type="button" class="btn product-gallery__arrow" data-gallery-next aria-label="Next photo" title="Next photo">&#8594;</button>
         </div>
-      {% endif %}
-      {% if product.media.size > 1 %}
-        <div class="product__thumbs">
-          {% for m in product.media offset: 1 %}
-            {% if m.preview_image %}
-              <div class="artwork-frame">
-                {{ m.preview_image | image_url: width: 800 | image_tag:
-                  loading: 'lazy',
-                  widths: '200, 400, 600, 800',
-                  sizes: '(min-width: 900px) 160px, 25vw',
-                  class: 'artwork-img',
-                  alt: m.preview_image.alt | default: product.title }}
-              </div>
-            {% endif %}
+        <div class="product-gallery__thumbs">
+          {% for image in product.images %}
+            <button type="button" class="btn product-gallery__thumb" data-gallery-index="{{ forloop.index0 }}" aria-label="View photo {{ forloop.index }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+              {{ image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '100, 200', sizes: '80px', alt: '' }}
+            </button>
           {% endfor %}
         </div>
       {% endif %}

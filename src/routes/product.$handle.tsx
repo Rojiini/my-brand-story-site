@@ -9,6 +9,7 @@ import {
   storefrontApiRequest,
 } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cart-store";
+import { ProductGallery } from "@/components/product-gallery";
 
 const productQueryOptions = (handle: string) =>
   queryOptions({
@@ -155,7 +156,6 @@ function ProductDetail() {
     variants.find((v: any) => v.node.id === variantId)?.node ??
     variants[0]?.node;
   const images = product.images?.edges ?? [];
-  const mainImg = images[0]?.node;
 
   const handleAdd = async () => {
     if (!selected) return;
@@ -176,26 +176,7 @@ function ProductDetail() {
 
   return (
     <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-      <div className="space-y-4">
-        {mainImg && (
-          <div className="flex w-full items-center justify-center bg-secondary/30">
-            <img
-              src={mainImg.url}
-              alt={mainImg.altText ?? product.title}
-              className="h-auto w-full object-contain md:max-h-[85vh] md:w-auto md:max-w-full"
-            />
-          </div>
-        )}
-        {images.length > 1 && (
-          <div className="grid grid-cols-4 gap-2">
-            {images.slice(1).map((e: any, i: number) => (
-              <div key={i} className="aspect-square overflow-hidden bg-secondary/30">
-                <img src={e.node.url} alt="" className="h-full w-full object-contain" />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      <ProductGallery key={product.id} images={images.map((edge: any) => edge.node)} title={product.title} />
       <div>
         <Link to="/shop" className="text-eyebrow text-muted-foreground hover:text-accent">
           ← Shop

@@ -24,7 +24,7 @@
   </div>
 
   {% if section.blocks.size > 0 %}
-    <div class="event-gallery" style="margin-top:64px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+    <div class="event-gallery" style="margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
       {% for block in section.blocks %}
         <div {{ block.shopify_attributes }}>
           {% if block.settings.image %}
@@ -99,7 +99,6 @@
       "blocks": [
         { "type": "photo", "settings": { "fallback": "la-2025-IMG_4685.jpg", "alt": "Visitors viewing a calligraphy work at the HICH Gallery Los Angeles event" } },
         { "type": "photo", "settings": { "fallback": "la-2025-IMG_4716.jpg", "alt": "A green calligraphy canvas on display at the Los Angeles event" } },
-        { "type": "photo", "settings": { "fallback": "la-2025-IMG_4725.jpg", "alt": "Guests browsing handmade jewellery at the Los Angeles event" } },
         { "type": "photo", "settings": { "fallback": "la-2025-IMG_4744.jpg", "alt": "The gathering room and table at the HICH Gallery Los Angeles event" } }
       ]
     }

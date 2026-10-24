@@ -17,13 +17,6 @@
             "alt": "A green calligraphy canvas on display at the Los Angeles event"
           }
         },
-        "photo-3": {
-          "type": "photo",
-          "settings": {
-            "fallback": "la-2025-IMG_4725.jpg",
-            "alt": "Guests browsing handmade jewellery at the Los Angeles event"
-          }
-        },
         "photo-4": {
           "type": "photo",
           "settings": {
@@ -32,7 +25,7 @@
           }
         }
       },
-      "block_order": ["photo-1", "photo-2", "photo-3", "photo-4"]
+      "block_order": ["photo-1", "photo-2", "photo-4"]
     },
     "content": { "type": "main-page" }
   },

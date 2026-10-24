@@ -1,0 +1,18 @@
+{% assign signup_id = 'Newsletter-' | append: section.id %}
+{% form 'customer', id: signup_id, class: 'hich-form' %}
+  <input type="hidden" name="contact[tags]" value="{{ signup_tag | default: 'newsletter' | escape }}">
+  {% if form.posted_successfully? %}
+    <p class="form-status" role="status" tabindex="-1">Thank you for subscribing. If confirmation is required, check your inbox to complete your signup.</p>
+  {% else %}
+    {% if form.errors %}<div class="form-error" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+    {% unless hide_names %}
+      <div class="form-row">
+        <label for="{{ signup_id }}-first">First name (optional)<input id="{{ signup_id }}-first" type="text" name="contact[first_name]" maxlength="100" autocomplete="given-name" value="{{ form.first_name | escape }}"></label>
+        <label for="{{ signup_id }}-last">Last name (optional)<input id="{{ signup_id }}-last" type="text" name="contact[last_name]" maxlength="100" autocomplete="family-name" value="{{ form.last_name | escape }}"></label>
+      </div>
+    {% endunless %}
+    <label for="{{ signup_id }}-email">Email address<input id="{{ signup_id }}-email" type="email" name="contact[email]" required maxlength="254" autocomplete="email" autocapitalize="off" value="{{ form.email | escape }}" {% if form.errors %}aria-invalid="true"{% endif %}></label>
+    <label class="form-consent" for="{{ signup_id }}-consent"><input id="{{ signup_id }}-consent" type="checkbox" name="contact[accepts_marketing]" value="true" required>I agree to receive HICH Gallery newsletters, art updates, and event invitations by email. I can unsubscribe at any time.</label>
+    <button class="btn btn--solid" type="submit">{{ signup_label | default: 'Subscribe' | escape }}</button>
+  {% endif %}
+{% endform %}

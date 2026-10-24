@@ -1,0 +1,62 @@
+<header class="page-hero wrap">
+  <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
+  <h1 class="page-hero__title">{{ section.settings.title | escape }}</h1>
+  <div class="page-hero__intro rte">{{ section.settings.intro }}</div>
+</header>
+<section class="section wrap contact-layout">
+  <div class="contact-info">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 1400 | image_tag: widths: '400, 700, 1000, 1400', sizes: '(min-width: 1024px) 40vw, 100vw', alt: 'Art displayed at HICH Gallery', class: 'contact-image' }}
+    {% else %}
+      <img class="contact-image" src="{{ 'hero-gallery.jpg' | asset_url }}" alt="Art displayed at HICH Gallery" width="1600" height="1100">
+    {% endif %}
+    <div><span class="eyebrow">Email</span><a class="contact-email contact-email-link" href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }} ↗</a><div class="rte muted small">{{ section.settings.inquiries }}</div></div>
+    <div><span class="eyebrow">Mailbox</span><div class="contact-address rte">{{ section.settings.address }}</div></div>
+  </div>
+  <div>
+    <span class="eyebrow">{{ section.settings.form_eyebrow | escape }}</span>
+    <h2 class="section-title">{{ section.settings.form_title | escape }}</h2>
+    {% assign contact_id = 'Contact-' | append: section.id %}
+    {% form 'contact', id: contact_id, class: 'hich-form contact-inquiry' %}
+      {% if form.posted_successfully? %}
+        <p class="form-status" role="status" tabindex="-1">Thank you for your message. We’ll be in touch.</p>
+      {% else %}
+        {% if form.errors %}<div class="form-error" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+        <label for="{{ contact_id }}-name">Name<input id="{{ contact_id }}-name" name="contact[name]" type="text" required maxlength="100" autocomplete="name" value="{{ form.name | escape }}"></label>
+        <label for="{{ contact_id }}-email">Email address<input id="{{ contact_id }}-email" name="contact[email]" type="email" required maxlength="254" autocomplete="email" value="{{ form.email | escape }}" {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}></label>
+        <label for="{{ contact_id }}-topic">What’s your message about?<select id="{{ contact_id }}-topic" name="contact[Topic]"><option>General inquiry</option><option>Artwork &amp; orders</option><option>Customized art</option><option>Events &amp; collaborations</option></select></label>
+        <label for="{{ contact_id }}-message">Message<textarea id="{{ contact_id }}-message" name="contact[body]" required rows="7" maxlength="5000">{{ form.body | escape }}</textarea></label>
+        <p class="muted small">We’ll use your details to respond to your inquiry. Sending a message does not subscribe you to newsletters.</p>
+        <button class="btn btn--solid" type="submit">{{ section.settings.send_label | escape }} ↗</button>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+<section class="contact-newsletter">
+  <div class="wrap contact-newsletter__inner">
+    <div><span class="eyebrow">{{ section.settings.newsletter_eyebrow | escape }}</span><h2 class="section-title">{{ section.settings.newsletter_title | escape }}</h2><div class="rte muted">{{ section.settings.newsletter_text }}</div></div>
+    {% render 'newsletter-form', section: section, signup_label: section.settings.subscribe_label %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Contact Us",
+  "settings": [
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Correspond"},
+    {"type":"text","id":"title","label":"Title","default":"Contact Us"},
+    {"type":"richtext","id":"intro","label":"Introduction","default":"<p>A question, a collaboration, or the beginning of a new piece. We’d love to hear from you.</p>"},
+    {"type":"image_picker","id":"image","label":"Gallery image"},
+    {"type":"text","id":"email","label":"Contact email","default":"info@hichgallery.com"},
+    {"type":"richtext","id":"inquiries","label":"Inquiry categories","default":"<p>Artwork &amp; orders · Custom commissions · Press &amp; collaborations</p>"},
+    {"type":"richtext","id":"address","label":"Mailbox address","default":"<p>7367 N Ashland Blvd<br>Chicago, IL 60626<br>United States</p>"},
+    {"type":"text","id":"form_eyebrow","label":"Message eyebrow","default":"Get in touch"},
+    {"type":"text","id":"form_title","label":"Message heading","default":"Send us a message"},
+    {"type":"text","id":"send_label","label":"Send button","default":"Send message"},
+    {"type":"text","id":"newsletter_eyebrow","label":"Newsletter eyebrow","default":"Stay connected"},
+    {"type":"text","id":"newsletter_title","label":"Newsletter heading","default":"Letters from HICH"},
+    {"type":"richtext","id":"newsletter_text","label":"Newsletter description","default":"<p>New art, stories from our artists, and invitations to our next events. Join our newsletter.</p>"},
+    {"type":"text","id":"subscribe_label","label":"Subscribe button","default":"Subscribe"}
+  ],
+  "presets": [{"name":"Contact Us"}]
+}
+{% endschema %}

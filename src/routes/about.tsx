@@ -5,6 +5,8 @@ import betsabehPortrait from "@/assets/betsabeh-hasanpour.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "About & Visit — HICH Gallery" },
       {
         name: "description",

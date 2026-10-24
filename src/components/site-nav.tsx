@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { HichLogo } from "./hich-logo";
 import { CartDrawer } from "./cart-drawer";
+import { useState } from "react";
+import { Menu } from "lucide-react";
+import { Button } from "./ui/button";
 
 const links = [
   { to: "/", label: "Index" },
@@ -9,16 +12,18 @@ const links = [
   { to: "/shop", label: "Shop" },
   { to: "/customized-art", label: "Customized Art" },
   { to: "/about", label: "About & Visit" },
+  { to: "/contact", label: "Contact Us" },
 ] as const;
 
 export function SiteNav() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-3 md:px-10">
         <Link to="/" className="shrink-0" aria-label="HICH Gallery home">
           <HichLogo size="sm" />
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 xl:flex" aria-label="Main navigation">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -36,8 +41,10 @@ export function SiteNav() {
             &nbsp;
           </span>
           <CartDrawer />
+          <Button variant="ghost" size="icon" className="xl:hidden" aria-label="Menu" aria-expanded={menuOpen} aria-controls="preview-mobile-nav" onClick={() => setMenuOpen(!menuOpen)}><Menu /></Button>
         </div>
       </div>
+      {menuOpen && <nav id="preview-mobile-nav" aria-label="Mobile navigation" className="grid gap-5 border-t border-border px-6 py-6 xl:hidden">{links.map(link => <Link key={link.to} to={link.to} className="text-eyebrow text-foreground" onClick={() => setMenuOpen(false)}>{link.label}</Link>)}</nav>}
     </header>
   );
 }
@@ -65,8 +72,9 @@ export function SiteFooter() {
           <div className="space-y-4">
             <div className="text-eyebrow text-accent">Correspond</div>
             <p className="text-sm leading-relaxed text-ivory/80">
-              info@hichgallery.com
+              <a href="mailto:info@hichgallery.com">info@hichgallery.com</a>
             </p>
+            <Link to="/contact" className="inline-block text-sm text-ivory/80 underline">Contact Us</Link>
           </div>
       </div>
       <div className="border-t border-ivory/10">

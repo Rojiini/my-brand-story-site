@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add Contact Us with native Shopify inquiries and consent-based newsletter collection; mirror the preview, verify layouts, and package the complete theme.
+- [ ] Confirm live inquiry delivery and subscriber records (blocked: install the new theme, assign Contact Us template, and test an owned email address in Shopify).
 - [x] Package and validate a complete uploadable HICH theme containing the About & Visit page.
 - [x] Add the existing native Shopify theme as tracked source.
 - [x] Preserve the Online Store 2.0 directory structure and Theme Editor controls.

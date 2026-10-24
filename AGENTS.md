@@ -18,3 +18,5 @@ Keep Shopify products, collections, images, navigation, search, cart, inventory,
 orders, payments, and checkout native. Preserve Theme Editor configurability.
 Do not implement a React-only production storefront. The React app under `src/`
 is a visual reference unless the user explicitly requests a preview-only change.
+
+Contact inquiries and newsletter subscribers use Shopify's native contact/customer forms; preview forms post to the Shopify store, so no separate subscriber database or simulated success is used.

@@ -7,6 +7,8 @@ import artistWork3 from "@/assets/artist-3.jpg";
 export const Route = createFileRoute("/artists")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Artists — HICH Gallery" },
       {
         name: "description",

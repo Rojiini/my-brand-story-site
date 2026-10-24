@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { toast } from "sonner";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 import laTalk from "@/assets/events/la-2025-IMG_4685.jpg";
 import laCanvas from "@/assets/events/la-2025-IMG_4716.jpg";
 import laRoom from "@/assets/events/la-2025-IMG_4744.jpg";
@@ -47,15 +46,6 @@ function Section({ label, children }: { label: string; children: React.ReactNode
 }
 
 function EventsPage() {
-  const [email, setEmail] = useState("");
-
-  const notify = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    toast.success("You're on the list — we'll be in touch about our next event.");
-    setEmail("");
-  };
-
   return (
     <main>
       <header className="mx-auto max-w-[1400px] px-6 pb-8 pt-24 md:px-12 md:pt-32">
@@ -154,26 +144,10 @@ function EventsPage() {
               View Upcoming Events
             </a>
 
-            <form onSubmit={notify} className="w-full max-w-md">
+            <div className="w-full max-w-md text-left">
               <span className="text-eyebrow text-accent">Notify me</span>
-              <div className="mt-4 flex border border-foreground">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
-                  aria-label="Email address for event notifications"
-                  className="w-full bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="shrink-0 bg-foreground px-6 text-eyebrow text-background transition-opacity hover:opacity-80"
-                >
-                  Notify Me
-                </button>
-              </div>
-            </form>
+              <div className="mt-4"><NewsletterSignup id="events" names={false} tag="event-notifications" label="Notify Me" /></div>
+            </div>
           </div>
         </div>
       </Section>

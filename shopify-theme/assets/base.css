@@ -183,3 +183,33 @@ html,body{overflow-x:hidden}
 .story-feature>*,.artist-feature>*,.artist-feature__meta>*,.details>*,.profiles>*{min-width:0}
 .artist-feature__name,.contact-email,.details p,.profile__bio{overflow-wrap:anywhere}
 @media(max-width:749px){.hours__row{flex-wrap:wrap;gap:8px 24px}}
+
+/* Native contact and customer forms */
+:root{--form-error:var(--royal-blue);--form-surface:var(--ivory);--form-border:var(--aged-bronze)}
+.contact-layout{display:grid;grid-template-columns:1fr;gap:64px;padding-top:48px}
+.contact-layout>*,.contact-newsletter__inner>*{min-width:0}
+.contact-info{display:grid;align-content:start;gap:40px}
+.contact-image{aspect-ratio:4/3;width:100%;object-fit:cover}
+.contact-email-link{display:block;color:var(--royal-blue);overflow-wrap:anywhere;margin:16px 0 12px}
+.contact-email-link:hover{text-decoration:underline}
+.contact-address{font-family:var(--display);font-size:1.5rem;margin-top:16px}
+.hich-form{display:grid;gap:24px;text-align:left}
+.contact-inquiry{margin-top:32px}
+.hich-form label{display:grid;gap:8px;font-size:.9rem}
+.hich-form input:not([type=checkbox]):not([type=hidden]),.hich-form textarea,.hich-form select{min-width:0;width:100%;padding:12px;border:1px solid var(--form-border);border-radius:0;background:transparent;color:var(--void);font:inherit}
+.hich-form select{background:var(--form-surface)}
+.hich-form textarea{resize:vertical}
+.hich-form input:focus-visible,.hich-form select:focus-visible,.hich-form textarea:focus-visible{outline:2px solid var(--royal-blue);outline-offset:3px}
+.hich-form .form-consent{display:flex;align-items:flex-start;gap:12px;color:var(--aged-bronze);line-height:1.6}
+.form-consent input{width:16px;height:16px;flex-shrink:0;margin-top:4px;accent-color:var(--royal-blue)}
+.hich-form .btn{justify-self:start;letter-spacing:0}
+.form-row{display:grid;gap:24px;grid-template-columns:1fr 1fr}
+.form-error{color:var(--form-error)}
+.form-status{border-left:2px solid var(--royal-blue);padding:16px}
+.contact-newsletter{margin-top:64px;border-top:1px solid var(--form-border);border-bottom:1px solid var(--form-border)}
+.contact-newsletter__inner{display:grid;gap:48px;padding-block:80px}
+.contact-newsletter .rte{max-width:440px;margin-top:24px}
+.notify-form{width:100%;max-width:448px}
+@media(min-width:1024px){.contact-layout{grid-template-columns:5fr 7fr}.contact-newsletter__inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}.contact-email-link{font-size:1.5rem}.contact-layout{gap:48px}}
+@media(max-width:1100px){.main-nav{display:none}.nav-toggle{display:block}.mobile-nav:not([hidden]){display:flex}}

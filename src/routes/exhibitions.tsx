@@ -109,7 +109,7 @@ function EventsPage() {
           </div>
         </article>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+        <div className="mt-16 grid grid-cols-3 gap-4 md:gap-6">
           {laGallery.map((photo) => (
             <img
               key={photo.src}

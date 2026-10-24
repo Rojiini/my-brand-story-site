@@ -217,7 +217,7 @@ html,body{overflow-x:hidden}
 /* Product photo slider: full artwork, natural proportions, native swipe. */
 .product-gallery__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .product-gallery__track::-webkit-scrollbar{display:none}
-.product-gallery__slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.product-gallery__slide{flex:0 0 100%;min-width:0;scroll-snap-align:start}
 .product-gallery__controls{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:.9rem}
 .product-gallery__arrow{width:44px;height:44px;padding:0;letter-spacing:0;font-size:1.25rem}
 .product-gallery__thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}

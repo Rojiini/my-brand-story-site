@@ -2,7 +2,7 @@
   "sections": {
     "hero": { "type": "image-hero", "settings": { "heading": "HICH Gallery", "tagline": "Where nothing becomes everything.", "eyebrow": "NOW ON VIEW" } },
     "statement": { "type": "editorial-statement" },
-    "shop": { "type": "featured-collection" },
+    "shop": { "type": "featured-collection", "settings": { "eyebrow": "Newest Arrivals", "heading": "Most recent works" } },
     "programme": {
       "type": "programme-grid",
       "settings": { "eyebrow": "Events", "heading": "Recent & Upcoming", "link": "shopify://pages/exhibitions", "link_label": "View All Events" },

@@ -18,7 +18,11 @@ import { useCartStore } from "@/stores/cart-store";
 const productsQueryOptions = queryOptions({
   queryKey: ["shopify", "home-products"],
   queryFn: async () => {
-    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 6 });
+    const data = await storefrontApiRequest(PRODUCTS_QUERY, {
+      first: 6,
+      sortKey: "CREATED_AT",
+      reverse: true,
+    });
     const edges: ShopifyProduct[] = data?.data?.products?.edges ?? [];
     return edges;
   },

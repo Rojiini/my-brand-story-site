@@ -4,7 +4,8 @@
     <h2 class="section-title">{{ section.settings.heading }}</h2>
     <div class="grid" style="margin-top:64px">
       {% assign col = collections[section.settings.collection] | default: collections.all %}
-      {% for product in col.products limit: section.settings.limit %}
+      {% assign recent_products = col.products | sort: 'published_at' | reverse %}
+      {% for product in recent_products limit: section.settings.limit %}
         {% render 'product-card', product: product %}
       {% else %}
         <p>No works available yet.</p>
@@ -14,8 +15,8 @@
 </section>
 {% schema %}
 {"name":"Featured collection","settings":[
- {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Available Works"},
- {"type":"text","id":"heading","label":"Heading","default":"From the shop"},
+ {"type":"text","id":"eyebrow","label":"Eyebrow","default":"Newest Arrivals"},
+ {"type":"text","id":"heading","label":"Heading","default":"Most recent works"},
  {"type":"collection","id":"collection","label":"Collection"},
  {"type":"range","id":"limit","label":"Products","min":3,"max":24,"step":3,"default":6}
 ],"presets":[{"name":"Featured collection"}]}

@@ -18,7 +18,11 @@ import { useCartStore } from "@/stores/cart-store";
 const productsQueryOptions = queryOptions({
   queryKey: ["shopify", "home-products"],
   queryFn: async () => {
-    const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 6 });
+    const data = await storefrontApiRequest(PRODUCTS_QUERY, {
+      first: 6,
+      sortKey: "CREATED_AT",
+      reverse: true,
+    });
     const edges: ShopifyProduct[] = data?.data?.products?.edges ?? [];
     return edges;
   },
@@ -118,9 +122,9 @@ function Index() {
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-12">
           <div className="mb-16 flex items-end justify-between">
             <div>
-              <span className="text-eyebrow text-accent">Available Works</span>
+              <span className="text-eyebrow text-accent">Newest Arrivals</span>
               <h3 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
-                From the shop
+                Most recent works
               </h3>
             </div>
             <Link

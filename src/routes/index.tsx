@@ -19,7 +19,7 @@ const productsQueryOptions = queryOptions({
   queryKey: ["shopify", "home-products"],
   queryFn: async () => {
     const data = await storefrontApiRequest(PRODUCTS_QUERY, {
-      first: 6,
+      first: 3,
       sortKey: "CREATED_AT",
       reverse: true,
     });
